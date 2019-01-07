@@ -1,0 +1,29 @@
+{
+  "name": "oxid-esales/geo-blocking-module",
+  "description": "The module enables OXID eShop to be compliant with the EU geo-blocking regulations.",
+  "type": "oxideshop-module",
+  "keywords": ["oxid", "modules", "eShop"],
+  "homepage": "https://www.oxid-esales.com",
+  "license": [
+    "GPL-3.0-only"
+  ],
+  "extra": {
+    "oxideshop": {
+      "blacklist-filter": [
+        "composer.json",
+        "README.md",
+        "LICENSE",
+        "CHANGELOG.md"
+      ],
+      "target-directory": "oe/geoblocking"
+    }
+  },
+  "require": {
+    "php": ">=5.6"
+  },
+  "autoload": {
+    "psr-4": {
+      "OxidEsales\\GeoBlocking\\": "../../../source/modules/oe/geoblocking"
+    }
+  }
+}
