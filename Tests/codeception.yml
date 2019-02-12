@@ -11,6 +11,8 @@ actor_suffix: Tester
 settings:
     colors: true
     log: true
+    bootstrap: _bootstrap.php
+    shuffle: true
 extensions:
     enabled:
         - Codeception\Extension\RunFailed

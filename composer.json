@@ -13,7 +13,8 @@
         "composer.json",
         "README.md",
         "LICENSE",
-        "CHANGELOG.md"
+        "CHANGELOG.md",
+        ".gitignore"
       ],
       "target-directory": "oe/geoblocking"
     }

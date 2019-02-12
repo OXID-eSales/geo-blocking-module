@@ -1,11 +1,12 @@
 <?php
+/**
+ * Copyright © OXID eSales AG. All rights reserved.
+ * See LICENSE file for license details.
+ */
+
 namespace OxidEsales\GeoBlocking\Tests\Codeception\Helper;
 
-// here you can define custom actions
-// all public methods declared in helper class will be available in $I
-
-
-require_once '/var/www/oxideshop/vendor/oxid-esales/testing-library/base.php';
+require_once __DIR__.'/../../../../../../../../vendor/oxid-esales/testing-library/base.php';
 
 use Codeception\TestInterface;
 

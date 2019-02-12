@@ -8,8 +8,8 @@ namespace OxidEsales\DoctrineMigrationWrapper;
 
 $facts = new \OxidEsales\Facts\Facts();
 
-$selenium_server_port = getenv('SELENIUM_SERVER_PORT');
-$selenium_server_port = ($selenium_server_port) ? $selenium_server_port : '4444';
+$seleniumServerPort = getenv('SELENIUM_SERVER_PORT');
+$seleniumServerPort = ($seleniumServerPort) ? $seleniumServerPort : '4444';
 $php = (getenv('PHPBIN')) ? getenv('PHPBIN') : 'php';
 
 return [
@@ -21,33 +21,7 @@ return [
     'DB_PASSWORD' => $facts->getDatabasePassword(),
     'DB_HOST' => $facts->getDatabaseHost(),
     'DB_PORT' => $facts->getDatabasePort(),
-    'DUMP_PATH' => getTestDataDumpFilePath(),
-    'SELENIUM_SERVER_PORT' => $selenium_server_port,
+    'DUMP_PATH' => __DIR__. '/../_data/dump.sql',
+    'SELENIUM_SERVER_PORT' => $seleniumServerPort,
     'PHP_BIN' => $php,
 ];
-
-function getTestDataDumpFilePath()
-{
-    return getShopTestPath().'/Codeception/_data/dump.sql';
-}
-
-function getShopSuitePath($facts)
-{
-    $testSuitePath = getenv('TEST_SUITE');
-    if (!$testSuitePath) {
-        $testSuitePath = $facts->getShopRootPath().'/tests';
-    }
-    return $testSuitePath;
-}
-
-function getShopTestPath()
-{
-    $facts = new \OxidEsales\Facts\Facts();
-
-    if ($facts->isEnterprise()) {
-        $shopTestPath = $facts->getEnterpriseEditionRootPath().'/Tests';
-    } else {
-        $shopTestPath = getShopSuitePath($facts);
-    }
-    return $shopTestPath;
-}

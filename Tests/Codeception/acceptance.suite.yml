@@ -13,7 +13,7 @@ modules:
               url: '%SHOP_URL%'
               browser: firefox
               port: '%SELENIUM_SERVER_PORT%'
-              window_size: 1920x1080
+              window_size: 1200x1000
               clear_cookies: true
         - Db:
               dsn: 'mysql:host=%DB_HOST%;dbname=%DB_NAME%;charset=utf8'
@@ -23,11 +23,14 @@ modules:
               dump: '%DUMP_PATH%'
               populate: true # run populator before all tests
               cleanup: false # run populator before each test
-              populator: '%PHP_BIN% %VENDOR_PATH%/bin/reset-shop && mysql -u $user -h $host -p$password --default-character-set=utf8 $dbname < $dump'
-        - \OxidEsales\Codeception\Module\Oxideshop
+              populator: '%PHP_BIN% %VENDOR_PATH%/bin/reset-shop'
+        - \OxidEsales\Codeception\Module\Oxideshop:
+            depends:
+              - WebDriver
+              - Db
         - \OxidEsales\Codeception\Module\Database:
               config_key: 'fq45QS09_fqyx09239QQ'
               depends: Db
         - \OxidEsales\Codeception\Module\Translation\TranslationsModule:
               shop_path: '%SHOP_SOURCE_PATH%'
-              paths: 'Application/views/flow'
+              paths: 'Application/views/flow,modules/oe/geoblocking/Application/translations'
