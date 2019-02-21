@@ -67,16 +67,9 @@ class InputValidatorTest extends \OxidEsales\TestingLibrary\UnitTestCase
      * @param array $invoiceAddressParameters
      * @param array $deliveryAddressParameters
      */
-    public function testCheckCountries($invoiceAddressParameters, $deliveryAddressParameters)
+    public function testCheckInvoiceOnlyCountries($invoiceAddressParameters, $deliveryAddressParameters)
     {
-        $userController = oxNew(UserController::class);
-        $userController->setClassKey('user');
-        Registry::getConfig()->setActiveView($userController);
-        /** @var \OxidEsales\GeoBlocking\Application\Core\InputValidator $validator */
-        $validator = oxNew(InputValidator::class);
-
-        $invoiceAddressParameters['oxuser__oxcountryid'] = 'country_id';
-        $deliveryAddressParameters['oxaddress__oxcountryid'] = 'country_id';
+        $validator = $this->createInputValidator();
 
         $validator->checkCountries($this->user, $invoiceAddressParameters, $deliveryAddressParameters);
 
@@ -86,5 +79,30 @@ class InputValidatorTest extends \OxidEsales\TestingLibrary\UnitTestCase
             Registry::getLang()->translateString('OEGEOBLOCKING_ERROR_MESSAGE_INPUT_COUNTRY_NOT_ALLOWED'),
             $errors[''][0]->getMessage()
         );
+    }
+
+    public function testCheckCountriesWhenNoInvoiceOnlyCountryProvided()
+    {
+        $validator = $this->createInputValidator();
+
+        $invoiceAddressParameters['oxuser__oxcountryid'] = 'country_id2';
+
+        $validator->checkCountries($this->user, $invoiceAddressParameters, []);
+
+        $errors = $validator->getFieldValidationErrors();
+        $this->assertSame(0, count($errors));
+    }
+
+    /**
+     * @return \OxidEsales\GeoBlocking\Application\Core\InputValidator
+     */
+    private function createInputValidator()
+    {
+        $userController = oxNew(UserController::class);
+        $userController->setClassKey('user');
+        Registry::getConfig()->setActiveView($userController);
+        /** @var \OxidEsales\GeoBlocking\Application\Core\InputValidator $validator */
+        $validator = oxNew(InputValidator::class);
+        return $validator;
     }
 }

@@ -41,7 +41,7 @@ class InputValidator extends InputValidator_parent
                 $countryToShopService = oxNew(CountryToShopService::class);
                 $countryToShop = $countryToShopService->getByCountryId($deliveryCountryId);
 
-                if ($countryToShop->getId()) {
+                if ($countryToShop->getId() && $countryToShop->oegeoblocking_country_to_shop__invoice_only->value === '1') {
                     $exception = oxNew(
                         UserException::class,
                         Registry::getLang()->translateString('OEGEOBLOCKING_ERROR_MESSAGE_INPUT_COUNTRY_NOT_ALLOWED')
