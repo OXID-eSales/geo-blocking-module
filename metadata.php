@@ -22,9 +22,9 @@ $sMetadataVersion = '2.1';
  * Module information.
  */
 $aModule = [
-    'id'           => 'oegeoblocking',
-    'title'        => 'OXID geo-blocking module',
-    'description'  => [
+    'id' => 'oegeoblocking',
+    'title' => 'OXID geo-blocking module',
+    'description' => [
         'de' => 'Dieses Modul ermöglicht es, den OXID eShop konform zu der EU Geoblocking-Verordnung einzurichten.',
         'en' => 'The module enables OXID eShop to be compliant with the EU geo-blocking regulations.',
     ],
