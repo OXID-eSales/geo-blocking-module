@@ -5,7 +5,7 @@ $sLangName = 'Deutsch';
 $aLang = [
     'charset' => 'UTF-8',
 
-    'OEGEOBLOCKING_HINT'                   => "Wir liefern nicht in das ausgewählte Land. Bitte wählen oder erstellen sie eine andere Lieferadresse in dem Lieferadresse Bereich.",
+    'OEGEOBLOCKING_HINT'                   => "Wir liefern nicht in das ausgewählte Land. Bitte wählen oder erstellen sie eine andere Lieferadresse in dem Bereich Lieferadresse.",
     'OEGEOBLOCKING_PICKUP_ADDRESS'         => "Abholadresse",
     'OEGEOBLOCKING_YOUR_ADDRESS'           => "Ihre Lieferadresse",
     'OEGEOBLOCKING_ERROR_MESSAGE_INPUT_COUNTRY_NOT_ALLOWED'  => 'Leider ist keine Lieferung in das aktuelle Lieferland möglich. Bitte geben Sie eine gültige Lieferadresse an.',
@@ -13,5 +13,5 @@ $aLang = [
     'OEGEOBLOCKING_INVALID_ADDRESS'        => "Ungültige Lieferadresse",
     'OEGEOBLOCKING_INVALID'                => "Ungültig",
     'OEGEOBLOCKING_MUST_CHOOSE_DELADDR'    => "Sie müssen eine von der Rechnungsadresse abweichende Lieferadresse wählen.",
-    'OEGEOBLOCKING_PICKUP_ADDRESS_CHANGE_NOT_ALLOWED'    => "Es ist nicht zulässig diese Lieferadresse zu ändern, bitte Alternative wählen oder neu hinzufügen.",
+    'OEGEOBLOCKING_PICKUP_ADDRESS_CHANGE_NOT_ALLOWED'    => "Es ist nicht zulässig diese Lieferadresse zu ändern, bitte wählen Sie eine Alternative oder fügen eine neue hinzu.",
 ];
