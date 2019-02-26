@@ -1,10 +1,9 @@
 OXID geo-blocking module
 ========================
 
-The module enables OXID eShop to be compliant with the EU geo-blocking regulations.
+This module provides a vast range of extra options concerning the so called geo-blocking regulation (EU 2018/302), additionally to the in-application solution provided here: https://oxidforge.org/en/faq-geoblocking.html
 
-Module gives possibility for system administrator mark countries as "Invoice Only" and also define alternative pickup
-address.
+Further, this module provides a possibility to mark countries as "Invoice only" and to define an alternative pickup address.
 
 ## Requirements
 
@@ -12,7 +11,7 @@ address.
 
 ## Installation
 
-Run the following commands to install module:
+Run the following command to install module:
 
 ```bash
 composer require oxid-esales/geo-blocking-module
