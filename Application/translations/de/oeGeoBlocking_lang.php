@@ -13,5 +13,5 @@ $aLang = [
     'OEGEOBLOCKING_INVALID_ADDRESS' => "Ungültige Lieferadresse",
     'OEGEOBLOCKING_INVALID' => "Ungültig",
     'OEGEOBLOCKING_MUST_CHOOSE_DELADDR' => "Sie müssen eine von der Rechnungsadresse abweichende Lieferadresse wählen!",
-    'OEGEOBLOCKING_PICKUP_ADDRESS_CHANGE_NOT_ALLOWED' => "Es ist nicht zulässig, diese Lieferadresse zu ändern. Bitte wählen Sie eine Alternative oder fügen eine neue hinzu!,
+    'OEGEOBLOCKING_PICKUP_ADDRESS_CHANGE_NOT_ALLOWED' => "Es ist nicht zulässig, diese Lieferadresse zu ändern. Bitte wählen Sie eine Alternative oder fügen eine neue hinzu!",
 ];
