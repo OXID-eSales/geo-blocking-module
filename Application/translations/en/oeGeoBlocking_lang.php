@@ -5,7 +5,7 @@ $sLangName = 'English';
 $aLang = [
     'charset' => 'UTF-8',
 
-    'OEGEOBLOCKING_HINT' => "Unfortunately, we do not deliver to your country. Please choose or register a valid delivery address! See: Shipping and Charges",
+    'OEGEOBLOCKING_HINT' => "Unfortunately, we do not deliver to your country. Please choose or register a valid delivery address!",
     'OEGEOBLOCKING_PICKUP_ADDRESS' => "Pickup Address",
     'OEGEOBLOCKING_YOUR_ADDRESS' => "Your shipping address",
     'OEGEOBLOCKING_ERROR_MESSAGE_INPUT_COUNTRY_NOT_ALLOWED' => 'Delivery to this country is not possible. Please select another country in your shipping address!',
