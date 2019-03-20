@@ -5,7 +5,7 @@ $sLangName = 'Deutsch';
 $aLang = [
     'charset' => 'UTF-8',
 
-    'OEGEOBLOCKING_HINT' => "Leider liefern wir nicht in Ihr Land. Bitte wählen oder erstellen Sie eine gültige Lieferadresse! Siehe: Zahlung und Lieferung",
+    'OEGEOBLOCKING_HINT' => "Leider liefern wir nicht in Ihr Land. Bitte wählen oder erstellen Sie eine gültige Lieferadresse!",
     'OEGEOBLOCKING_PICKUP_ADDRESS' => "Abholadresse",
     'OEGEOBLOCKING_YOUR_ADDRESS' => "Ihre Lieferadresse",
     'OEGEOBLOCKING_ERROR_MESSAGE_INPUT_COUNTRY_NOT_ALLOWED' => 'Leider ist keine Lieferung in das aktuelle Lieferland möglich. Bitte geben Sie eine gültige Lieferadresse an!',
