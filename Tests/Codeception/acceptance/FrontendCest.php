@@ -9,7 +9,7 @@ namespace OxidEsales\GeoBlocking\Tests\Codeception;
 use Codeception\Util\Fixtures;
 use OxidEsales\Codeception\Module\Translation\Translator;
 use OxidEsales\Codeception\Page\Checkout\UserCheckout;
-use OxidEsales\GeoBlocking\Tests\Codeception\Step\Acceptance\Basket;
+use OxidEsales\Codeception\Step\Basket;
 
 class FrontendCest
 {
@@ -39,9 +39,11 @@ class FrontendCest
         $I->see(Translator::translate('MESSAGE_WELCOME_REGISTERED_USER'));
     }
 
-    public function checksIfNotPossibleToUseBillingAddressForShippingInCheckout(AcceptanceTester $I, Basket $basket)
+    public function checksIfNotPossibleToUseBillingAddressForShippingInCheckout(AcceptanceTester $I)
     {
         $I->wantToTest('checkout step 2 when not possible to use billing address');
+        $basket = new Basket($I);
+
         $this->addTestProductToDatabase($I);
         $I->haveInDatabase('oxuser', Fixtures::get('user'));
 
@@ -59,18 +61,20 @@ class FrontendCest
         $userCheckout->enterAddressData(Fixtures::get('userAddressData'));
         $I->see(Translator::translate('OEGEOBLOCKING_HINT'));
 
-        $I->click($userCheckout::$delCountryId);
-        $I->see('Austria', $userCheckout::$shipAddressForm);
-        $I->dontSee('United Kingdom', $userCheckout::$shipAddressForm);
+        $I->click($userCheckout->delCountryId);
+        $I->see('Austria', $userCheckout->shipAddressForm);
+        $I->dontSee('United Kingdom', $userCheckout->shipAddressForm);
 
-        $I->dontSeeCheckboxIsChecked($userCheckout::$openShipAddressForm);
+        $I->dontSeeCheckboxIsChecked($userCheckout->openShipAddressForm);
         $userCheckout->goToNextStep();
         $I->see(Translator::translate('DD_FORM_VALIDATION_REQUIRED'));
     }
 
-    public function checkIfNotPossibleToEditPickupAddressInCheckout(AcceptanceTester $I, Basket $basket)
+    public function checkIfNotPossibleToEditPickupAddressInCheckout(AcceptanceTester $I)
     {
         $I->wantToTest('checkout step 2 when not possible to edit or delete pickup address in checkout');
+        $basket = new Basket($I);
+
         $this->addTestProductToDatabase($I);
         $I->haveInDatabase('oxuser', Fixtures::get('user'));
         $this->addAddressData($I);
@@ -83,11 +87,11 @@ class FrontendCest
 
         $I->see(Translator::translate('OEGEOBLOCKING_HINT'));
 
-        $I->dontSeeCheckboxIsChecked($userCheckout::$openShipAddressForm);
-        $I->seeElement(sprintf($userCheckout::$openShipAddress, 1));
-        $I->dontSeeElement(sprintf($userCheckout::$openShipAddress, 2));
-        $I->dontSeeElement(sprintf($userCheckout::$deleteShipAddress, 2));
-        $I->seeElement(sprintf($userCheckout::$selectShipAddress, 2));
+        $I->dontSeeCheckboxIsChecked($userCheckout->openShipAddressForm);
+        $I->seeElement(sprintf($userCheckout->openShipAddress, 1));
+        $I->dontSeeElement(sprintf($userCheckout->openShipAddress, 2));
+        $I->dontSeeElement(sprintf($userCheckout->deleteShipAddress, 2));
+        $I->seeElement(sprintf($userCheckout->selectShipAddress, 2));
     }
 
     public function checksIfNotPossibleToUseBillingAddressForShippingInUserAccount(AcceptanceTester $I)
@@ -101,18 +105,18 @@ class FrontendCest
         $userAccount = $startPage->openAccountPage();
         $userAddress = $userAccount->openUserAddressPage();
 
-        $I->dontSeeCheckboxIsChecked($userAddress::$openShipAddressPanel);
-        $I->seeElement(sprintf($userAddress::$openShipAddressForm, 1));
-        $I->dontSeeElement(sprintf($userAddress::$openShipAddressForm, 2));
-        $I->dontSeeElement(sprintf($userAddress::$deleteShipAddress, 2));
-        $I->seeElement(sprintf($userAddress::$selectShipAddress, 2));
+        $I->dontSeeCheckboxIsChecked($userAddress->openShipAddressPanel);
+        $I->seeElement(sprintf($userAddress->openShipAddressForm, 1));
+        $I->dontSeeElement(sprintf($userAddress->openShipAddressForm, 2));
+        $I->dontSeeElement(sprintf($userAddress->deleteShipAddress, 2));
+        $I->seeElement(sprintf($userAddress->selectShipAddress, 2));
 
         $userAddress->selectShippingAddress(1);
 
-        $I->waitForElement($userAddress::$delCountryId);
-        $I->click($userAddress::$delCountryId);
-        $I->see('Austria', $userAddress::$shipAddressForm);
-        $I->dontSee('United Kingdom', $userAddress::$shipAddressForm);
+        $I->waitForElement($userAddress->delCountryId);
+        $I->click($userAddress->delCountryId);
+        $I->see('Austria', $userAddress->shipAddressForm);
+        $I->dontSee('United Kingdom', $userAddress->shipAddressForm);
     }
 
     private function addTestProductToDatabase(AcceptanceTester $I)

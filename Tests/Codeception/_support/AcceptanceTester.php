@@ -33,31 +33,8 @@ class AcceptanceTester extends \Codeception\Actor
     public function openShop()
     {
         $I = $this;
-        $I->amOnPage(Home::$URL);
-        return new Home($I);
-    }
-
-    /**
-     * @param int $timeout
-     */
-    public function waitForAjax($timeout = 60)
-    {
-        $I = $this;
-        $I->waitForJS(
-            'return !!window.jQuery && window.jQuery.active == 0;',
-            $timeout
-        );
-    }
-    /**
-     * @param int $timeout
-     */
-    public function waitForPageLoad($timeout = 60)
-    {
-        $I = $this;
-        $I->waitForJS(
-            'return document.readyState == "complete"',
-            $timeout
-        );
-        $this->waitForAjax($timeout);
+        $homePage = new Home($I);
+        $I->amOnPage($homePage->URL);
+        return $homePage;
     }
 }

@@ -8,7 +8,6 @@ actor: AcceptanceTester
 modules:
     enabled:
         - Asserts
-        - \OxidEsales\GeoBlocking\Tests\Codeception\Helper\Acceptance
         - WebDriver:
               url: '%SHOP_URL%'
               browser: firefox
