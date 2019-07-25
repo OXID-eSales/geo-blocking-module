@@ -12,4 +12,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Removed
 - Support of php 5.6 and 7.0
 
+### Fixed
+- Fixed tests to work with latest module registration/activation changes
+
 ## [1.0.0] - 2019-02-25

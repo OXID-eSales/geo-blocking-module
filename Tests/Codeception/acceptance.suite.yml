@@ -21,7 +21,7 @@ modules:
               port: '%DB_PORT%'
               dump: '%DUMP_PATH%'
               populate: true # run populator before all tests
-              cleanup: false # run populator before each test
+              cleanup: true # run populator before each test
               populator: '%PHP_BIN% %VENDOR_PATH%/bin/reset-shop'
         - \OxidEsales\Codeception\Module\Oxideshop:
             depends:
