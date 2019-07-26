@@ -5,9 +5,10 @@ This module provides a vast range of extra options concerning the so called geo-
 
 Further, this module provides a possibility to mark countries as "Invoice only" and to define an alternative pickup address.
 
-## Requirements
+## Compatability
 
-* OXID eShop compilation ^v6.0.0
+* Module v1.0 version works with OXID eShop compilation v6.0.0 to v6.1.x
+* Module ^v1.1 (or master branch) works with shop ^v6.2.0
 
 ## Installation
 
