@@ -12,7 +12,7 @@ use OxidEsales\GeoBlocking\Application\Model\CountryToShop;
 
 class CountryToShopServiceTest extends \OxidEsales\TestingLibrary\UnitTestCase
 {
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
 
@@ -26,7 +26,7 @@ class CountryToShopServiceTest extends \OxidEsales\TestingLibrary\UnitTestCase
         $countryToShop->save();
     }
 
-    public function tearDown()
+    public function tearDown(): void
     {
         parent::tearDown();
 

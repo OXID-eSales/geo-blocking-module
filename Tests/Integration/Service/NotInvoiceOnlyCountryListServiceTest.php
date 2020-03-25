@@ -15,7 +15,7 @@ use OxidEsales\GeoBlocking\Application\Model\CountryToShop;
 
 class NotInvoiceOnlyCountryListServiceTest extends \OxidEsales\TestingLibrary\UnitTestCase
 {
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
         DatabaseProvider::getDb()->execute("DELETE FROM oxcountry");

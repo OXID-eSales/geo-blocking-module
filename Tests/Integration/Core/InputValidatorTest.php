@@ -18,7 +18,7 @@ class InputValidatorTest extends \OxidEsales\TestingLibrary\UnitTestCase
 {
     private $user;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
         $user = new User();

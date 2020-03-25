@@ -16,7 +16,7 @@ use OxidEsales\GeoBlocking\Application\Model\CountryToShop;
 
 class OrderControllerTest extends \OxidEsales\TestingLibrary\UnitTestCase
 {
-    protected function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
 

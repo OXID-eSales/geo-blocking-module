@@ -16,7 +16,7 @@ use OxidEsales\GeoBlocking\Application\Model\CountryToShop;
 
 class UserComponentTest extends \OxidEsales\TestingLibrary\UnitTestCase
 {
-    protected function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
 
@@ -37,7 +37,7 @@ class UserComponentTest extends \OxidEsales\TestingLibrary\UnitTestCase
         $address2->save();
     }
 
-    protected function tearDown()
+    protected function tearDown(): void
     {
         unset($_GET['oxaddressid']);
         parent::tearDown();

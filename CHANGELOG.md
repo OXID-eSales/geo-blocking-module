@@ -14,5 +14,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Fixed
 - Fixed tests to work with latest module registration/activation changes
+- Fixed compatibility issues regarding setUp and tearDown phpunit methods.
 
 ## [1.0.0] - 2019-02-25
