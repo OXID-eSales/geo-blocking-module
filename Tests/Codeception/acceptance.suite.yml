@@ -32,4 +32,4 @@ modules:
               depends: Db
         - \OxidEsales\Codeception\Module\Translation\TranslationsModule:
               shop_path: '%SHOP_SOURCE_PATH%'
-              paths: 'Application/views/flow,modules/oe/geoblocking/Application/translations'
+              paths: 'Application/views/flow/translations,modules/oe/geoblocking/Application/translations'
