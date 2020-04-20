@@ -51,7 +51,7 @@ class FrontendCest
         $startPage->loginUser('testing_account@oxid-esales.local', 'useruser');
 
         /** @var UserCheckout $paymentCheckout */
-        $userCheckout = $basket->addProductToBasketAndOpen(1000, 1, 'user');
+        $userCheckout = $basket->addProductToBasketAndOpenUserCheckout(1000, 1);
         $I->click('#basketModal button');
         $I->wait(1);
 
@@ -82,7 +82,7 @@ class FrontendCest
         $startPage = $I->openShop();
         $startPage->loginUser('testing_account@oxid-esales.local', 'useruser');
         /** @var UserCheckout $paymentCheckout */
-        $userCheckout = $basket->addProductToBasketAndOpen(1000, 1, 'user');
+        $userCheckout = $basket->addProductToBasketAndOpenUserCheckout(1000, 1);
         $I->click('#basketModal button');
 
         $I->see(Translator::translate('OEGEOBLOCKING_HINT'));
