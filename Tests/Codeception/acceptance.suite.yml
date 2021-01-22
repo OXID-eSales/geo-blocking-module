@@ -33,3 +33,5 @@ modules:
         - \OxidEsales\Codeception\Module\Translation\TranslationsModule:
               shop_path: '%SHOP_SOURCE_PATH%'
               paths: 'Application/views/flow,modules/oe/geoblocking/Application/translations'
+step_decorators:
+  - \Codeception\Step\Retry
