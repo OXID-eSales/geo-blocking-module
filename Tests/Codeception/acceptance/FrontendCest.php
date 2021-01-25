@@ -6,6 +6,7 @@
 
 namespace OxidEsales\GeoBlocking\Tests\Codeception;
 
+use Codeception\TestInterface;
 use Codeception\Util\Fixtures;
 use OxidEsales\Codeception\Module\Translation\Translator;
 use OxidEsales\Codeception\Page\Checkout\UserCheckout;
@@ -21,6 +22,7 @@ class FrontendCest
         $I->deleteFromDatabase('oxaddress', ['OXID' => 'pickup_address_id']);
         $I->deleteFromDatabase('oxaddress', ['OXID' => 'user_defined_pickup_address_id']);
         $I->haveInDatabase('oegeoblocking_country_to_shop', Fixtures::get('countryToShopData'));
+        $I->updateConfigInDatabase('stickyHeader', false, 'bool');
     }
 
     public function registerUserWithCountryWhichIsInvoiceOnly(AcceptanceTester $I)
@@ -31,9 +33,11 @@ class FrontendCest
         $registrationPage = $startPage->openUserRegistrationPage();
 
         $registrationPage->enterUserLoginData(Fixtures::get('userLoginData'));
+        $I->executeJS('window.scrollTo(0,0);');
         $registrationPage->enterUserData(Fixtures::get('userData'));
+        $I->executeJS('window.scrollTo(0,0);');
         $registrationPage->enterAddressData(Fixtures::get('userAddressData'));
-        $I->cantSee(Translator::translate('OEGEOBLOCKING_HINT'));
+        $I->dontSeeInPageSource(Translator::translate('OEGEOBLOCKING_HINT'));
         $I->executeJS('window.scrollTo(0,0);');
         $registrationPage->registerUser();
         $I->see(Translator::translate('MESSAGE_WELCOME_REGISTERED_USER'));
