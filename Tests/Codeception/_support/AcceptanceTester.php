@@ -7,6 +7,7 @@
 namespace OxidEsales\GeoBlocking\Tests\Codeception;
 
 use OxidEsales\Codeception\Page\Home;
+use OxidEsales\Facts\Facts;
 
 /**
  * Inherited Methods
@@ -36,5 +37,12 @@ class AcceptanceTester extends \Codeception\Actor
         $homePage = new Home($I);
         $I->amOnPage($homePage->URL);
         return $homePage;
+    }
+
+    public function setModuleActive(bool $active = true): void
+    {
+        $command = $active ? 'activate' : 'deactivate';
+
+        exec((new Facts())->getShopRootPath() . '/bin/oe-console oe:module:' . $command . ' oe_moduletemplate');
     }
 }

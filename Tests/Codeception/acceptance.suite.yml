@@ -10,7 +10,8 @@ modules:
         - Asserts
         - WebDriver:
               url: '%SHOP_URL%'
-              browser: firefox
+              host: '%SELENIUM_SERVER_HOST%'
+              browser: '%BROWSER_NAME%'
               port: '%SELENIUM_SERVER_PORT%'
               window_size: 1200x1000
               clear_cookies: true
@@ -20,9 +21,13 @@ modules:
               password: '%DB_PASSWORD%'
               port: '%DB_PORT%'
               dump: '%DUMP_PATH%'
+              module_dump: '%MODULE_DUMP_PATH%'
+              mysql_config: '%MYSQL_CONFIG_PATH%'
               populate: true # run populator before all tests
-              cleanup: true # run populator before each test
-              populator: '%PHP_BIN% %VENDOR_PATH%/bin/reset-shop'
+              cleanup: false # run populator before each test
+              populator: >
+                mysql --defaults-file=$mysql_config --default-character-set=utf8 $dbname < $dump
+                && mysql --defaults-file=$mysql_config --default-character-set=utf8 $dbname < $module_dump
         - \OxidEsales\Codeception\Module\Oxideshop:
             depends:
               - WebDriver
@@ -32,6 +37,10 @@ modules:
               depends: Db
         - \OxidEsales\Codeception\Module\Translation\TranslationsModule:
               shop_path: '%SHOP_SOURCE_PATH%'
-              paths: 'Application/views/flow/translations,modules/oe/geoblocking/Application/translations'
+              paths:
+                - Application/views/twig
+                - Application/views/admin_twig
+                - ../vendor/oxid-esales/module-template/views/admin_twig
+                - ../vendor/oxid-esales/module-template/translations
 step_decorators:
   - \Codeception\Step\Retry

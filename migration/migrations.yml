@@ -1,0 +1,4 @@
+table_storage:
+  table_name: oxmigrations_geo_blocking
+migrations_paths:
+  'OxidEsales\ModuleTemplate\Migrations': data

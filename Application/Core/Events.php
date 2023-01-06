@@ -6,7 +6,10 @@
 
 namespace OxidEsales\GeoBlocking\Application\Core;
 
-use OxidEsales\Eshop\Core\DatabaseProvider;
+use Exception;
+use OxidEsales\DoctrineMigrationWrapper\Migrations;
+use OxidEsales\DoctrineMigrationWrapper\MigrationsBuilder;
+use Symfony\Component\Console\Output\BufferedOutput;
 
 /**
  * Module events class.
@@ -14,22 +17,39 @@ use OxidEsales\Eshop\Core\DatabaseProvider;
 class Events
 {
     /**
-     * Execute action on activate event.
+     * Execute action on activate event
+     *
+     * @throws Exception
      */
-    public static function onActivate()
+    public static function onActivate(): void
     {
-        $query = "CREATE TABLE IF NOT EXISTS `oegeoblocking_country_to_shop` (
-                  `OXID` char(32) CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL COMMENT 'Record id',
-                  `OXCOUNTRYID` char(32) CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL COMMENT 'Country id',
-                  `OXSHOPID` int(11) NOT NULL DEFAULT '1' COMMENT 'Shop id (oxshops)',
-                  `PICKUP_ADDRESSID` char(32) CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL COMMENT 'oxaddress id',
-                  `PICKUP_ADDRESS_ACTIVE` tinyint NOT NULL DEFAULT 0,
-                  `INVOICE_ONLY` tinyint NOT NULL DEFAULT 0,
-                  `OXTIMESTAMP` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'Timestamp',
-                  PRIMARY KEY (`OXID`),
-                  UNIQUE KEY `OXCOUNTRYID` (`OXCOUNTRYID`,`OXSHOPID`)
-                ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Shows many-to-many relationship between fields and shops (multishops fields)';";
+        // execute module migrations
+        self::executeModuleMigrations();
+    }
 
-        DatabaseProvider::getDb()->execute($query);
+    /**
+     * Execute action on deactivate event
+     *
+     * @throws Exception
+     */
+    public static function onDeactivate(): void
+    {
+        //nothing to be done here for this module right now
+    }
+
+    /**
+     * Execute necessary module migrations on activate event
+     */
+    private static function executeModuleMigrations(): void
+    {
+        $migrations = (new MigrationsBuilder())->build();
+
+        $output = new BufferedOutput();
+        $migrations->setOutput($output);
+        $neeedsUpdate = $migrations->execute('migrations:up-to-date', 'oegeoblocking');
+
+        if ($neeedsUpdate) {
+            $migrations->execute('migrations:migrate', 'oegeoblocking');
+        }
     }
 }

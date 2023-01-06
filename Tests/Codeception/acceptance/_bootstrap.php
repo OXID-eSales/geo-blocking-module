@@ -5,6 +5,9 @@
  */
 
 use OxidEsales\Facts\Facts;
+use Webmozart\PathUtil\Path;
+
+require_once Path::join((new \OxidEsales\Facts\Facts())->getShopRootPath(), 'source', 'bootstrap.php');
 
 $helper = new \OxidEsales\Codeception\Module\FixturesHelper();
 $fixturesPath = dirname(__FILE__).'/../_data/fixtures.php';
