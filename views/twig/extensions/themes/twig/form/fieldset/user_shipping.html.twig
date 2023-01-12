@@ -1,0 +1,26 @@
+{% extends 'form/fieldset/user_shipping.html.twig' %}
+{% block form_user_shipping_country %}
+    {{ parent() }}
+    {% block oegeoblocking_form_user_shipping_country %}
+        {% for country in oViewConf.getCountryList() %}
+            <!-- In case it's invoice only country, it's being removed from dropdown list. -->
+            {% if country.oeGeoBlockingIsInvoiceOnly() %}
+                {% set scriptToMarkCountryElement = '$(\'#delCountrySelect option[value="'|cat(country.oxcountry__oxid.value)|cat('"]\').remove();') %}
+                {{ script({ add: scriptToMarkCountryElement, dynamic: __oxid_include_dynamic }) }}
+            {% endif %}
+        {% endfor %}
+    {% endblock %}
+{% endblock %}
+
+{% block form_user_shipping_address_select %}
+    {{ parent() }}
+    {% block oegeoblocking_form_user_shipping_address_select %}
+        <!-- Removes edit and delete buttons for shipping address which was entered by admin. -->
+        {% for address in aUserAddresses %}
+            {% if not address.oeGeoBlockingCanFrontendUserChange() %}
+                {% set scriptToHideDeleteEditButtons = '$("input[name=\'oxaddressid\'][value=\''|cat(address.getId())|cat('\']").parent().parent().parent().find(\'.dd-action\').remove()') %}
+                {{ script({ add: scriptToHideDeleteEditButtons, dynamic: __oxid_include_dynamic }) }}
+            {% endif %}
+        {% endfor %}
+    {% endblock %}
+{% endblock %}

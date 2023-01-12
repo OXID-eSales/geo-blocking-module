@@ -50,28 +50,28 @@ $aModule = [
         [
             'template' => 'country_main.tpl',
             'block' => 'admin_country_main_form',
-            'file' => '/Application/views/blocks/admin_country_main_form.tpl'
+            'file' => 'views/smarty/blocks/admin_country_main_form.tpl'
         ],
         // Frontend
         [
             'template' => 'form/user_checkout_change.tpl',
             'block' => 'user_checkout_billing_feedback',
-            'file' => '/Application/views/blocks/form/user_checkout_billing_feedback.tpl'
+            'file' => 'views/smarty/blocks/form/user_checkout_billing_feedback.tpl'
         ],
         [
             'template' => 'form/fieldset/user_billing.tpl',
             'block' => 'form_user_billing_country',
-            'file' => '/Application/views/blocks/form/form_user_billing_country.tpl'
+            'file' => 'views/smarty/blocks/form/form_user_billing_country.tpl'
         ],
         [
             'template' => 'form/fieldset/user_shipping.tpl',
             'block' => 'form_user_shipping_country',
-            'file' => '/Application/views/blocks/form/form_user_shipping_country.tpl'
+            'file' => 'views/smarty/blocks/form/form_user_shipping_country.tpl'
         ],
         [
             'template' => 'form/fieldset/user_shipping.tpl',
             'block' => 'form_user_shipping_address_select',
-            'file' => '/Application/views/blocks/form/form_user_shipping_address_select.tpl'
+            'file' => 'views/smarty/blocks/form/form_user_shipping_address_select.tpl'
         ],
     ],
 ];

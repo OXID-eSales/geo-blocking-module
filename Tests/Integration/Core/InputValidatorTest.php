@@ -14,7 +14,7 @@ use OxidEsales\Eshop\Core\InputValidator;
 use OxidEsales\Eshop\Core\Registry;
 use OxidEsales\GeoBlocking\Application\Model\CountryToShop;
 
-class InputValidatorTest extends \OxidEsales\TestingLibrary\UnitTestCase
+class InputValidatorTest extends \PHPUnit\Framework\TestCase
 {
     private $user;
 

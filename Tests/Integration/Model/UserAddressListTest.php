@@ -14,7 +14,7 @@ use OxidEsales\Eshop\Core\Registry;
 use OxidEsales\GeoBlocking\Application\Model\Address;
 use OxidEsales\GeoBlocking\Application\Model\CountryToShop;
 
-class UserAddressListTest extends \OxidEsales\TestingLibrary\UnitTestCase
+class UserAddressListTest extends \PHPUnit\Framework\TestCase
 {
     protected function setUp(): void
     {

@@ -29,7 +29,7 @@ class UserComponent extends UserComponent_parent
             Registry::getRequest()->getRequestEscapedParameter('oxaddressid', '')
         );
         /** @var \OxidEsales\GeoBlocking\Application\Model\Address $address */
-        $address = oxNew(Address::class);
+        $address = Registry::get(Address::class);
         if ($address->load((string)$countryToShop->oegeoblocking_country_to_shop__pickup_addressid->value)) {
             if ($address->oeGeoBlockingIsUserChangingAddress($deliveryAddressInfo)) {
                 Registry::getUtilsView()->addErrorToDisplay(

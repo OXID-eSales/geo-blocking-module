@@ -14,7 +14,7 @@ use OxidEsales\Eshop\Core\Field;
 use OxidEsales\Eshop\Core\Registry;
 use OxidEsales\GeoBlocking\Application\Model\CountryToShop;
 
-class CountryMainTest extends \OxidEsales\TestingLibrary\UnitTestCase
+class CountryMainTest extends \PHPUnit\Framework\TestCase
 {
     protected function setUp(): void
     {

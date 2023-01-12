@@ -10,7 +10,7 @@ use OxidEsales\Eshop\Application\Model\Country;
 use OxidEsales\Eshop\Core\Field;
 use OxidEsales\GeoBlocking\Application\Model\CountryToShop;
 
-class CountryTest extends \OxidEsales\TestingLibrary\UnitTestCase
+class CountryTest extends \PHPUnit\Framework\TestCase
 {
     protected function setUp(): void
     {

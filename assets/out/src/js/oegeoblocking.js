@@ -9,6 +9,7 @@ var oeGeoBlocking = {
      * Initializes after document.ready.
      */
     init: function() {
+        console.log('123');
         if ($('#invCountrySelect').length > 0) {
             // event listener: selected invoice country has changed
             $(document.body).off('change', "#invCountrySelect", oeGeoBlocking.checkInvoiceCountry);
@@ -24,7 +25,7 @@ var oeGeoBlocking = {
      */
     checkInvoiceCountry: function() {
         oeGeoBlocking.isCountryInvoiceOnly = $("#invCountrySelect").find(':selected').data('invoiceonly');
-
+console.log(oeGeoBlocking.isCountryInvoiceOnly);
         if (oeGeoBlocking.isCountryInvoiceOnly == 1) {
             // Country is marked as "invoice only"
             if (!$('#shippingAddress').is(':visible')) {

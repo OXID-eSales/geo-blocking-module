@@ -13,7 +13,7 @@ use OxidEsales\Eshop\Core\Registry;
 use OxidEsales\GeoBlocking\Application\Service\NotInvoiceOnlyCountryListService;
 use OxidEsales\GeoBlocking\Application\Model\CountryToShop;
 
-class NotInvoiceOnlyCountryListServiceTest extends \OxidEsales\TestingLibrary\UnitTestCase
+class NotInvoiceOnlyCountryListServiceTest extends \PHPUnit\Framework\TestCase
 {
     public function setUp(): void
     {

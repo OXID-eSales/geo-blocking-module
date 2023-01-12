@@ -12,7 +12,7 @@ use OxidEsales\EshopCommunity\Core\Field;
 use OxidEsales\GeoBlocking\Application\Service\PickupAddressService;
 use OxidEsales\GeoBlocking\Application\Model\CountryToShop;
 
-class PickupAddressServiceTest extends \OxidEsales\TestingLibrary\UnitTestCase
+class PickupAddressServiceTest extends \PHPUnit\Framework\TestCase
 {
     public function setUp(): void
     {

@@ -38,7 +38,14 @@ class CountryToShopService
             $this->countryToShop->getViewName() . '.OXSHOPID' => Registry::getConfig()->getShopId(),
         ];
         $selectQuery = $this->countryToShop->buildSelectString($parameters);
-        $isLoaded = $this->countryToShop->assignRecord($selectQuery);
+        $record = \OxidEsales\Eshop\Core\DatabaseProvider::getDb(\OxidEsales\Eshop\Core\DatabaseProvider::FETCH_MODE_ASSOC)->select($selectQuery);
+
+        $isLoaded = false;
+        if ($record && $record->count() > 0) {
+            $this->countryToShop->assign($record->fields);
+            $isLoaded = true;
+        }
+//        $isLoaded = $this->countryToShop->assignRecord($selectQuery);
 
         if (!$isLoaded) {
             $this->countryToShop->assign(
@@ -63,7 +70,11 @@ class CountryToShopService
             $this->countryToShop->getViewName() . '.OXSHOPID' => Registry::getConfig()->getShopId(),
         ];
         $selectQuery = $this->countryToShop->buildSelectString($parameters);
-        $this->countryToShop->assignRecord($selectQuery);
+        $record = \OxidEsales\Eshop\Core\DatabaseProvider::getDb(\OxidEsales\Eshop\Core\DatabaseProvider::FETCH_MODE_ASSOC)->select($selectQuery);
+        if ($record && $record->count() > 0) {
+            $this->countryToShop->assign($record->fields);
+        }
+//        $this->countryToShop->assignRecord($selectQuery);
 
         return $this->countryToShop;
     }
