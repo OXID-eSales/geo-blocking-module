@@ -4,14 +4,14 @@
  * See LICENSE file for license details.
  */
 
-use OxidEsales\GeoBlocking\Application\Component\UserComponent;
-use OxidEsales\GeoBlocking\Application\Controller\Admin\CountryMain;
-use OxidEsales\GeoBlocking\Application\Controller\OrderController;
-use OxidEsales\GeoBlocking\Application\Core\Events;
-use OxidEsales\GeoBlocking\Application\Core\InputValidator;
-use OxidEsales\GeoBlocking\Application\Model\Address;
-use OxidEsales\GeoBlocking\Application\Model\Country;
-use OxidEsales\GeoBlocking\Application\Model\UserAddressList;
+use OxidEsales\GeoBlocking\Component\UserComponent;
+use OxidEsales\GeoBlocking\Controller\Admin\CountryMain;
+use OxidEsales\GeoBlocking\Controller\OrderController;
+use OxidEsales\GeoBlocking\Core\Events;
+use OxidEsales\GeoBlocking\Core\InputValidator;
+use OxidEsales\GeoBlocking\Model\Address;
+use OxidEsales\GeoBlocking\Model\Country;
+use OxidEsales\GeoBlocking\Model\UserAddressList;
 
 /**
  * Metadata version
@@ -43,7 +43,7 @@ $aModule = [
         \OxidEsales\Eshop\Core\InputValidator::class => InputValidator::class,
     ],
     'events' => [
-        'onActivate' => Events::class . '::onActivate',
+        'onActivate' => '\OxidEsales\GeoBlocking\Core\Events::onActivate',
     ],
     'blocks' => [
         // Admin

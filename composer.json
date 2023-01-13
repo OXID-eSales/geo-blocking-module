@@ -24,7 +24,8 @@
   },
   "autoload": {
     "psr-4": {
-      "OxidEsales\\GeoBlocking\\": "../../../source/modules/oe/geoblocking"
+      "OxidEsales\\GeoBlocking\\": "src/",
+      "OxidEsales\\GeoBlocking\\Tests\\": "tests/"
     }
   }
 }

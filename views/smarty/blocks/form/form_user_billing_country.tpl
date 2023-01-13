@@ -16,6 +16,6 @@
 				'}]
 			[{/if}]
 		[{/foreach}]
-		[{oxscript include=$oViewConf->getModuleUrl('oegeoblocking','out/js/oegeoblocking.js') priority=11}]
+		[{oxscript include=$oViewConf->getModuleUrl('oegeoblocking','out/src/js/oegeoblocking.js') priority=11}]
 	[{/if}]
 [{/block}]
