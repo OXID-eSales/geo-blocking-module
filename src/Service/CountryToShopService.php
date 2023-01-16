@@ -7,6 +7,8 @@
 namespace OxidEsales\GeoBlocking\Service;
 
 use OxidEsales\EshopCommunity\Core\Registry;
+use OxidEsales\EshopCommunity\Internal\Container\ContainerFactory;
+use OxidEsales\EshopCommunity\Internal\Framework\Database\QueryBuilderFactoryInterface;
 use OxidEsales\GeoBlocking\Model\CountryToShop;
 
 /**
@@ -37,15 +39,13 @@ class CountryToShopService
             $this->countryToShop->getViewName() . '.OXCOUNTRYID' => $countryId,
             $this->countryToShop->getViewName() . '.OXSHOPID' => Registry::getConfig()->getShopId(),
         ];
-        $selectQuery = $this->countryToShop->buildSelectString($parameters);
-        $record = \OxidEsales\Eshop\Core\DatabaseProvider::getDb(\OxidEsales\Eshop\Core\DatabaseProvider::FETCH_MODE_ASSOC)->select($selectQuery);
+        $record = $this->getById($parameters);
 
         $isLoaded = false;
-        if ($record && $record->count() > 0) {
-            $this->countryToShop->assign($record->fields);
+        if (is_array($record) && count($record)) {
+            $this->countryToShop->assign($record);
             $isLoaded = true;
         }
-//        $isLoaded = $this->countryToShop->assignRecord($selectQuery);
 
         if (!$isLoaded) {
             $this->countryToShop->assign(
@@ -69,13 +69,33 @@ class CountryToShopService
             $this->countryToShop->getViewName() . '.PICKUP_ADDRESSID' => $addressId,
             $this->countryToShop->getViewName() . '.OXSHOPID' => Registry::getConfig()->getShopId(),
         ];
-        $selectQuery = $this->countryToShop->buildSelectString($parameters);
-        $record = \OxidEsales\Eshop\Core\DatabaseProvider::getDb(\OxidEsales\Eshop\Core\DatabaseProvider::FETCH_MODE_ASSOC)->select($selectQuery);
-        if ($record && $record->count() > 0) {
-            $this->countryToShop->assign($record->fields);
+
+        $record = $this->getById($parameters);
+        if (is_array($record) && count($record)) {
+            $this->countryToShop->assign($record);
         }
-//        $this->countryToShop->assignRecord($selectQuery);
 
         return $this->countryToShop;
+    }
+
+    /**
+     * @param array $parameters
+     * @return mixed
+     * @throws \Psr\Container\ContainerExceptionInterface
+     * @throws \Psr\Container\NotFoundExceptionInterface
+     */
+    private function getById(array $parameters)
+    {
+        $selectQuery = $this->countryToShop->buildSelectString($parameters);
+
+        $connection = ContainerFactory::getInstance()
+            ->getContainer()
+            ->get(QueryBuilderFactoryInterface::class)
+            ->create()
+            ->getConnection();
+
+        return $connection
+            ->executeQuery($selectQuery)
+            ->fetchAssociative();
     }
 }
