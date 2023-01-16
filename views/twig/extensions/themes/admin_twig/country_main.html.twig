@@ -9,7 +9,7 @@
             <td class="edittext">
                 <input type="hidden" class="editinput" name="editval_gb[oegeoblocking_country_to_shop__invoice_only]" value="0">
                 <input type="checkbox" class="editinput" name="editval_gb[oegeoblocking_country_to_shop__invoice_only]" value="1" {% if invoiceCountry.oegeoblocking_country_to_shop__invoice_only.value %} checked {% endif %} {{ readonly }}>
-                {{ translate({ ident: "OEGEOBLOCKING_INVOICEONLY_HELP" }) }}
+                {% include "inputhelp.html.twig" with {'sHelpId': help_id("OEGEOBLOCKING_INVOICEONLY_HELP"), 'sHelpText': help_text("OEGEOBLOCKING_INVOICEONLY_HELP")} %}
             </td>
         </tr>
         </table>
@@ -29,7 +29,7 @@
                     <td class="edittext">
                         <input type="hidden" name="editval_gb[oegeoblocking_country_to_shop__pickup_address_active]" value='0'>
                         <input class="edittext" type="checkbox" name="editval_gb[oegeoblocking_country_to_shop__pickup_address_active]" value='1' {% if invoiceCountry.oegeoblocking_country_to_shop__pickup_address_active.value == 1 %} checked {% endif %} {{ readonly }}>
-                        {{ translate({ ident: "HELP_GENERAL_ACTIVE" }) }}
+                        {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_GENERAL_ACTIVE"), 'sHelpText': help_text("HELP_GENERAL_ACTIVE")} %}
                     </td>
                 </tr>
                 <tr>
@@ -37,12 +37,12 @@
                         {{ translate({ ident: "GENERAL_BILLSAL" }) }}
                     </td>
                     <td class="edittext">
-                        <select name="editval_gb[oxaddress__oxsal]" class="editinput" {{ $readonly }}>
+                        <select name="editval_gb[oxaddress__oxsal]" class="editinput" {{ readonly }}>
                             <option value="" {% if pickupAddress.oxaddress__oxsal.value|lower  == "-" %} SELECTED {% endif %}>-</option>
                             <option value="MR" {% if pickupAddress.oxaddress__oxsal.value|lower  == "mr" %} SELECTED {% endif %}>{{ translate({ ident: "MR" }) }}</option>
                             <option value="MRS" {% if pickupAddress.oxaddress__oxsal.value|lower  == "mrs" %} SELECTED {% endif %}>{{ translate({ ident: "MRS" }) }}</option>
                         </select>
-                        {{ translate({ ident: "HELP_GENERAL_BILLSAL" }) }}
+                        {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_GENERAL_BILLSAL"), 'sHelpText': help_text("HELP_GENERAL_BILLSAL")} %}
                     </td>
                 </tr>
                 <tr>
@@ -52,7 +52,7 @@
                     <td class="edittext">
                         <input type="text" class="editinput" size="10" maxlength="{{ pickupAddress.oxaddress__oxfname.fldmax_length }}" name="editval_gb[oxaddress__oxfname]" value="{{ pickupAddress.oxaddress__oxfname.value }}" {{ readonly }}>
                         <input type="text" class="editinput" size="20" maxlength="{{ pickupAddress.oxaddress__oxlname.fldmax_length }}" name="editval_gb[oxaddress__oxlname]" value="{{ pickupAddress.oxaddress__oxlname.value }}" {{ readonly }}>
-                        {{ translate({ ident: "HELP_USER_MAIN_NAME" }) }}
+                        {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_USER_MAIN_NAME"), 'sHelpText': help_text("HELP_USER_MAIN_NAME")} %}
                     </td>
                 </tr>
                 <tr>
@@ -61,7 +61,7 @@
                     </td>
                     <td class="edittext">
                         <input type="text" class="editinput" size="37" maxlength="{{ pickupAddress.oxaddress__oxcompany.fldmax_length }}" name="editval_gb[oxaddress__oxcompany]" value="{{ pickupAddress.oxaddress__oxcompany.value }}" {{ readonly }}>
-                        {{ translate({ ident: "HELP_GENERAL_COMPANY" }) }}
+                        {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_GENERAL_COMPANY"), 'sHelpText': help_text("HELP_GENERAL_COMPANY")} %}
                     </td>
                 </tr>
                 <tr>
@@ -71,7 +71,7 @@
                     <td class="edittext">
                         <input type="text" class="editinput" size="28" maxlength="{{ pickupAddress.oxaddress__oxstreet.fldmax_length }}" name="editval_gb[oxaddress__oxstreet]" value="{{ pickupAddress.oxaddress__oxstreet.value }}" {{ readonly }}>
                         <input type="text" class="editinput" size="5" maxlength="{{ pickupAddress.oxaddress__oxstreetnr.fldmax_length }}" name="editval_gb[oxaddress__oxstreetnr]" value="{{ pickupAddress.oxaddress__oxstreetnr.value }}" {{ readonly }}>
-                        {{ translate({ ident: "HELP_USER_MAIN_STRNR" }) }}
+                        {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_USER_MAIN_STRNR"), 'sHelpText': help_text("HELP_USER_MAIN_STRNR")} %}
                     </td>
                 </tr>
                 <tr>
@@ -81,7 +81,7 @@
                     <td class="edittext">
                         <input type="text" class="editinput" size="5" maxlength="{{ pickupAddress.oxaddress__oxzip.fldmax_length }}" name="editval_gb[oxaddress__oxzip]" value="{{ pickupAddress.oxaddress__oxzip.value }}" {{ readonly }}>
                         <input type="text" class="editinput" size="25" maxlength="{{ pickupAddress.oxaddress__oxcity.fldmax_length }}" name="editval_gb[oxaddress__oxcity]" value="{{ pickupAddress.oxaddress__oxcity.value }}" {{ readonly }}>
-                        {{ translate({ ident: "HELP_GENERAL_ZIPCITY" }) }}
+                        {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_GENERAL_ZIPCITY"), 'sHelpText': help_text("HELP_GENERAL_ZIPCITY")} %}
                     </td>
                 </tr>
                 <tr>
@@ -90,7 +90,7 @@
                     </td>
                     <td class="edittext">
                         <input type="text" class="editinput" size="37" maxlength="{{ pickupAddress.oxaddress__oxaddinfo.fldmax_length }}" name="editval_gb[oxaddress__oxaddinfo]" value="{{ pickupAddress.oxaddress__oxaddinfo.value }}" {{ readonly }}>
-                        {{ translate({ ident: "HELP_GENERAL_EXTRAINFO" }) }}
+                        {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_GENERAL_EXTRAINFO"), 'sHelpText': help_text("HELP_GENERAL_EXTRAINFO")} %}
                     </td>
                 </tr>
                 <tr>
@@ -104,7 +104,7 @@
                                 <option value="{{ oCountry.oxcountry__oxid.value }}" {% if oCountry.oxcountry__oxid.value == pickupAddress.oxaddress__oxcountryid.value %} selected {% endif %}>{{ oCountry.oxcountry__oxtitle.value }}</option>
                             {% endfor %}
                         </select>
-                        {{ translate({ ident: "HELP_GENERAL_COUNTRY" }) }}
+                        {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_GENERAL_COUNTRY"), 'sHelpText': help_text("HELP_GENERAL_COUNTRY")} %}
                     </td>
                 </tr>
                 <tr>
@@ -113,7 +113,7 @@
                     </td>
                     <td class="edittext">
                         <input type="text" class="editinput" size="20" maxlength="{{ pickupAddress.oxaddress__oxfon.fldmax_length }}" name="editval_gb[oxaddress__oxfon]" value="{{ pickupAddress.oxaddress__oxfon.value }}" {{ readonly }}>
-                        {{ translate({ ident: "HELP_GENERAL_TELEPHONE" }) }}
+                        {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_GENERAL_TELEPHONE"), 'sHelpText': help_text("HELP_GENERAL_TELEPHONE")} %}
                     </td>
                 </tr>
                 <tr>
@@ -122,7 +122,7 @@
                     </td>
                     <td class="edittext">
                         <input type="text" class="editinput" size="20" maxlength="{{ pickupAddress.oxaddress__oxfax.fldmax_length }}" name="editval_gb[oxaddress__oxfax]" value="{{ pickupAddress.oxaddress__oxfax.value }}" {{ readonly }}>
-                        {{ translate({ ident: "HELP_GENERAL_FAX" }) }}
+                        {% include "inputhelp.html.twig" with {'sHelpId': help_id("HELP_GENERAL_FAX"), 'sHelpText': help_text("HELP_GENERAL_FAX")} %}
                     </td>
                 </tr>
             </table>
