@@ -12,8 +12,9 @@ use OxidEsales\Eshop\Core\Field;
 use OxidEsales\Eshop\Core\Registry;
 use OxidEsales\GeoBlocking\Service\NotInvoiceOnlyCountryListService;
 use OxidEsales\GeoBlocking\Model\CountryToShop;
+use PHPUnit\Framework\TestCase;
 
-class NotInvoiceOnlyCountryListServiceTest extends \PHPUnit\Framework\TestCase
+class NotInvoiceOnlyCountryListServiceTest extends TestCase
 {
     public function setUp(): void
     {

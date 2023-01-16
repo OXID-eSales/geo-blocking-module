@@ -13,8 +13,9 @@ use OxidEsales\Eshop\Core\Field;
 use OxidEsales\Eshop\Core\Registry;
 use OxidEsales\GeoBlocking\Controller\OrderController;
 use OxidEsales\GeoBlocking\Model\CountryToShop;
+use PHPUnit\Framework\TestCase;
 
-class OrderControllerTest extends \PHPUnit\Framework\TestCase
+class OrderControllerTest extends TestCase
 {
     protected function setUp(): void
     {

@@ -12,8 +12,9 @@ use OxidEsales\Eshop\Application\Model\User;
 use OxidEsales\Eshop\Core\Field;
 use OxidEsales\Eshop\Core\Registry;
 use OxidEsales\GeoBlocking\Model\CountryToShop;
+use PHPUnit\Framework\TestCase;
 
-class UserComponentTest extends \PHPUnit\Framework\TestCase
+class UserComponentTest extends TestCase
 {
     protected function setUp(): void
     {

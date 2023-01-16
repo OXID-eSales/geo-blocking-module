@@ -9,8 +9,9 @@ namespace OxidEsales\GeoBlocking\Tests\Integration\Dao;
 use OxidEsales\Eshop\Core\Registry;
 use OxidEsales\EshopCommunity\Core\Field;
 use OxidEsales\GeoBlocking\Model\CountryToShop;
+use PHPUnit\Framework\TestCase;
 
-class CountryToShopServiceTest extends \PHPUnit\Framework\TestCase
+class CountryToShopServiceTest extends TestCase
 {
     public function setUp(): void
     {

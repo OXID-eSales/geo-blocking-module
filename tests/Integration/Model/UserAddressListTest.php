@@ -13,8 +13,9 @@ use OxidEsales\Eshop\Core\Field;
 use OxidEsales\Eshop\Core\Registry;
 use OxidEsales\GeoBlocking\Model\Address;
 use OxidEsales\GeoBlocking\Model\CountryToShop;
+use PHPUnit\Framework\TestCase;
 
-class UserAddressListTest extends \PHPUnit\Framework\TestCase
+class UserAddressListTest extends TestCase
 {
     protected function setUp(): void
     {

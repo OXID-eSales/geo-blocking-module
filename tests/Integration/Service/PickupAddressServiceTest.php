@@ -11,8 +11,9 @@ use OxidEsales\Eshop\Core\Registry;
 use OxidEsales\EshopCommunity\Core\Field;
 use OxidEsales\GeoBlocking\Service\PickupAddressService;
 use OxidEsales\GeoBlocking\Model\CountryToShop;
+use PHPUnit\Framework\TestCase;
 
-class PickupAddressServiceTest extends \PHPUnit\Framework\TestCase
+class PickupAddressServiceTest extends TestCase
 {
     public function setUp(): void
     {

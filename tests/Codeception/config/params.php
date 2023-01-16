@@ -78,4 +78,3 @@ function getMysqlConfigPath()
 
     return $generator->generate();
 }
-

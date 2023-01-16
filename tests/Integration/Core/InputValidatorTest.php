@@ -13,8 +13,9 @@ use OxidEsales\Eshop\Core\Field;
 use OxidEsales\Eshop\Core\InputValidator;
 use OxidEsales\Eshop\Core\Registry;
 use OxidEsales\GeoBlocking\Model\CountryToShop;
+use PHPUnit\Framework\TestCase;
 
-class InputValidatorTest extends \PHPUnit\Framework\TestCase
+class InputValidatorTest extends TestCase
 {
     private $user;
 

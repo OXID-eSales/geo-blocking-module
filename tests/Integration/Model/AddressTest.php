@@ -9,8 +9,9 @@ namespace OxidEsales\GeoBlocking\Tests\Integration\Model;
 use OxidEsales\Eshop\Core\Field;
 use OxidEsales\GeoBlocking\Model\Address;
 use OxidEsales\GeoBlocking\Model\CountryToShop;
+use PHPUnit\Framework\TestCase;
 
-class AddressTest extends \PHPUnit\Framework\TestCase
+class AddressTest extends TestCase
 {
     protected function setUp(): void
     {
