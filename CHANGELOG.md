@@ -6,9 +6,19 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+### Added
+- Support for twig template engine
+- Migrations directory configured, queries from activation events moved to migrations
+- Development workflows with test runners
+- Module works on smarty engine (Smarty related extensions in views/smarty resp. views/admin_smarty directory)
+- Module works on twig engine (Twig related extensions in views/twig resp. views/admin_twig directory)
+
 ### Changed
-- Changed flow theme translation path used by Codeception tests.
-- Increase `php` version to `7.3` in composer.json file.
+- Adapted module to work with OXID eShop 7.0.x
+- Adapted test to work with OXID eShop 7.0.x and without testing library
+- Moved all php code to src directory with some cleanups:
+    - Application folder omitted
+- All assets moved to `assets` folder to be available after module installation
 
 ## [1.1.1] - 2022-06-13
 
