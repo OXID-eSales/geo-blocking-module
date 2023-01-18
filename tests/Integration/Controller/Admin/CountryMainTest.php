@@ -74,6 +74,6 @@ class CountryMainTest extends TestCase
         $countryToShop = new CountryToShop();
         $countryToShop->load('test_model_id');
 
-        $this->assertSame('0', $countryToShop->oegeoblocking_country_to_shop__pickup_address_active->value);
+        $this->assertSame(0, (int) $countryToShop->getRawFieldData('oegeoblocking_country_to_shop__pickup_address_active'));
     }
 }
