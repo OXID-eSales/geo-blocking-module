@@ -1,0 +1,22 @@
+{% extends 'form/fieldset/user_billing.html.twig' %}
+{% block form_user_billing_country %}
+    {{ parent() }}
+    {% block oegeoblocking_form_user_billing_country %}
+        {% for country in oViewConf.getCountryList() %}
+            {% if country.oeGeoBlockingIsInvoiceOnly() %}
+                <!-- Mark with attribute "invoice only" countries. -->
+                {% set scriptToMarkCountryElement = 'document.querySelector(\'#invCountrySelect option[value="'|cat(country.oxcountry__oxid.value)|cat('"]\').dataset.invoiceonly=\'true\';') %}
+                {{ script({ add: scriptToMarkCountryElement, dynamic: __oxid_include_dynamic }) }}
+                <!-- Move message element bellow countries drop down list. -->
+                {{ script({ add: '
+					document.querySelector("#userChangeAddress").click(function(){
+						var messageElement = document.querySelector("#oegb-hint-message");
+						messageElement.parentNode.removeChild(messageElement);
+						document.querySelector("#invCountrySelect").parentNode.parentNode.appendChild(messageElement);
+					});
+				', dynamic: __oxid_include_dynamic }) }}
+            {% endif %}
+        {% endfor %}
+        {{ script({ include: oViewConf.getModuleUrl('oegeoblocking','out/src/js/oegeoblocking-apex.js'), priority: 11, dynamic: __oxid_include_dynamic }) }}
+    {% endblock %}
+{% endblock %}
