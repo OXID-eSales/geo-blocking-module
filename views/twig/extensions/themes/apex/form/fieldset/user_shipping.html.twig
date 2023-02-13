@@ -5,7 +5,10 @@
         {% for country in oViewConf.getCountryList() %}
             <!-- In case it's invoice only country, it's being removed from dropdown list. -->
             {% if country.oeGeoBlockingIsInvoiceOnly() %}
-                {% set scriptToMarkCountryElement = 'document.querySelector(\'#delCountrySelect option[value="'|cat(country.oxcountry__oxid.value)|cat('"]\').remove();') %}
+                {% set scriptToMarkCountryElement = '
+                    var countryIndex = document.querySelector(\'#delCountrySelect option[value="'|cat(country.oxcountry__oxid.value)|cat('"]\').index;
+                    document.querySelector(\'#delCountrySelect\').remove(countryIndex);
+                ') %}
                 {{ script({ add: scriptToMarkCountryElement, dynamic: __oxid_include_dynamic }) }}
             {% endif %}
         {% endfor %}
@@ -18,7 +21,13 @@
         <!-- Removes edit and delete buttons for shipping address which was entered by admin. -->
         {% for address in aUserAddresses %}
             {% if not address.oeGeoBlockingCanFrontendUserChange() %}
-                {% set scriptToHideDeleteEditButtons = 'document.querySelector("input[name=\'oxaddressid\'][value=\''|cat(address.getId())|cat('\']").parentNode.parentNode.parentNode.querySelector(\'.dd-action\').remove()') %}
+                {% set scriptToHideDeleteEditButtons = '
+                    var address = document.querySelector("input[name=\'oxaddressid\'][value=\''|cat(address.getId())|cat('\']");
+                    if (address.checked) {
+                        var buttons = address.closest(\'.list-group-item\').querySelector(\'.address-info\').querySelectorAll(\'.dd-action\');
+                        buttons.forEach((button) => button.parentNode.removeChild(button));
+                    }
+                ') %}
                 {{ script({ add: scriptToHideDeleteEditButtons, dynamic: __oxid_include_dynamic }) }}
             {% endif %}
         {% endfor %}

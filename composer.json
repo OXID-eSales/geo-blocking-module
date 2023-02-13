@@ -9,15 +9,14 @@
   ],
   "extra": {
     "oxideshop": {
-      "blacklist-filter": [
-        "composer.json",
-        "README.md",
-        "LICENSE",
-        "CHANGELOG.md",
-        ".gitignore"
-      ],
       "target-directory": "oe/geoblocking"
     }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "prefer-dist": true,
+  "conflict": {
+    "oxid-esales/oxideshop-ce": "<7.0"
   },
   "require": {
     "php": "^8.0"

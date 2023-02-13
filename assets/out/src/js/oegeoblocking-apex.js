@@ -12,15 +12,12 @@ addSelectEventListener = () => {
 
 checkInvoiceCountry = () => {
     let invoiceonly = invCountrySelect.options[invCountrySelect.selectedIndex].dataset.invoiceonly;
-    console.log(invoiceonly);
+
     if (invoiceonly == 'true') {
-        console.log(1);
         // Country is marked as "invoice only"
         let shippingAddress = document.querySelector('#shippingAddress');
         const style = getComputedStyle(shippingAddress);
 
-        console.log(shippingAddress);
-        console.log(style.display === 'none');
         if (style.display === 'none') {
             document.querySelector('#showShipAddress').click();
         }
@@ -28,7 +25,6 @@ checkInvoiceCountry = () => {
         document.querySelector('.invoiceonlyhint').style.display = '';
         document.querySelector('#showShipAddress').setAttribute("disabled", "disabled");
     } else {
-        console.log(2);
         // Country is NOT marked as "invoice only"
         document.querySelector('.invoiceonlyhint').classList.add('hidden');
         document.querySelector('.invoiceonlyhint').style.display = 'none';

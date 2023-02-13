@@ -9,11 +9,17 @@
                 {{ script({ add: scriptToMarkCountryElement, dynamic: __oxid_include_dynamic }) }}
                 <!-- Move message element bellow countries drop down list. -->
                 {{ script({ add: '
-					document.querySelector("#userChangeAddress").click(function(){
-						var messageElement = document.querySelector("#oegb-hint-message");
+                    var userChangeAddress = document.getElementById(\'userChangeAddress\');
+
+                    if (userChangeAddress) {
+                        userChangeAddress.addEventListener(\'click\', moveMessageElement);
+                    }
+
+                    function moveMessageElement(evt) {
+                        var messageElement = document.querySelector("#oegb-hint-message");
 						messageElement.parentNode.removeChild(messageElement);
 						document.querySelector("#invCountrySelect").parentNode.parentNode.appendChild(messageElement);
-					});
+                    }
 				', dynamic: __oxid_include_dynamic }) }}
             {% endif %}
         {% endfor %}

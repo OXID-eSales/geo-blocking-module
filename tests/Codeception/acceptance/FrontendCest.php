@@ -64,7 +64,7 @@ class FrontendCest
         $userCheckout->enterAddressData(Fixtures::get('userAddressData'));
         $I->see(Translator::translate('OEGEOBLOCKING_HINT'));
 
-        $I->click($userCheckout->delCountryId);
+        $I->retryClick($userCheckout->delCountryId);
         $I->see('Austria', $userCheckout->shipAddressForm);
         $I->dontSee('United Kingdom', $userCheckout->shipAddressForm);
 
@@ -115,7 +115,7 @@ class FrontendCest
         $userAddress->selectShippingAddress(1);
 
         $I->waitForElement($userAddress->delCountryId);
-        $I->click($userAddress->delCountryId);
+        $I->retryClick($userAddress->delCountryId);
         $I->see('Austria', $userAddress->shipAddressForm);
         $I->dontSee('United Kingdom', $userAddress->shipAddressForm);
     }
