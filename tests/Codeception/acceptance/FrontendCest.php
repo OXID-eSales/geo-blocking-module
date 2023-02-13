@@ -115,7 +115,9 @@ class FrontendCest
         $userAddress->selectShippingAddress(1);
 
         $I->waitForElement($userAddress->delCountryId);
-        $I->retryClick($userAddress->delCountryId);
+        $I->scrollTo($userAddress->delCountryId);
+        $I->wait(1);
+        $I->click($userAddress->delCountryId);
         $I->see('Austria', $userAddress->shipAddressForm);
         $I->dontSee('United Kingdom', $userAddress->shipAddressForm);
     }

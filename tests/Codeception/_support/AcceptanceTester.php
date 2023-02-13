@@ -49,7 +49,7 @@ class AcceptanceTester extends \Codeception\Actor
     public function waitForPageLoad()
     {
         if (getenv('THEME_ID') !== 'apex') {
-            parent::waitForPageLoad();
+//            parent::waitForPageLoad();
         }
     }
 }
