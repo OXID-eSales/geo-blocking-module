@@ -2,47 +2,36 @@
  * Copyright © OXID eSales AG. All rights reserved.
  * See LICENSE file for license details.
  */
-var oeGeoBlocking = {
-    isCountryInvoiceOnly: 0,
 
-    /**
-     * Initializes after document.ready.
-     */
-    init: function() {
-        if ($('#invCountrySelect').length > 0) {
-            // event listener: selected invoice country has changed
-            $(document.body).off('change', "#invCountrySelect", oeGeoBlocking.checkInvoiceCountry);
-            $(document.body).on('change', "#invCountrySelect", oeGeoBlocking.checkInvoiceCountry);
+addSelectEventListener = () => {
+    let invCountrySelect = document.querySelector('#invCountrySelect');
 
-            // initial check
-            oeGeoBlocking.checkInvoiceCountry();
-        }
-    },
-
-    /**
-     * Is called every time when the selected invoice country changes and once initially.
-     */
-    checkInvoiceCountry: function() {
-        oeGeoBlocking.isCountryInvoiceOnly = $("#invCountrySelect").find(':selected').data('invoiceonly');
-
-        if (oeGeoBlocking.isCountryInvoiceOnly == 1) {
-            // Country is marked as "invoice only"
-            if (!$('#shippingAddress').is(':visible')) {
-                $('#showShipAddress').click();
-            }
-            $('.invoiceonlyhint').removeClass('hidden');
-            $('#showShipAddress').attr("disabled", "disabled");
-        } else {
-            // Country is NOT marked as "invoice only"
-            $('.invoiceonlyhint').addClass('hidden');
-            $('#showShipAddress').removeAttr("disabled");
-        }
-    },
+    invCountrySelect.addEventListener('click', checkInvoiceCountry);
+    checkInvoiceCountry();
 };
 
-/*
- * ON DOCUMENT READY
- * =================================================================================================================== */
-$(document).ready(function() {
-    oeGeoBlocking.init();
-});
+checkInvoiceCountry = () => {
+    let invoiceonly = invCountrySelect.options[invCountrySelect.selectedIndex].dataset.invoiceonly;
+
+    if (invoiceonly == 'true') {
+        // Country is marked as "invoice only"
+        let shippingAddress = document.querySelector('#shippingAddress');
+        const style = getComputedStyle(shippingAddress);
+
+        if (style.display === 'none') {
+            document.querySelector('#showShipAddress').click();
+        }
+        document.querySelector('.invoiceonlyhint').classList.remove('hidden');
+        document.querySelector('.invoiceonlyhint').style.display = '';
+        document.querySelector('#showShipAddress').setAttribute("disabled", "disabled");
+    } else {
+        // Country is NOT marked as "invoice only"
+        document.querySelector('.invoiceonlyhint').classList.add('hidden');
+        document.querySelector('.invoiceonlyhint').style.display = 'none';
+        document.querySelector('#showShipAddress').removeAttribute("disabled");
+    }
+};
+
+window.addEventListener("load", function() {
+    addSelectEventListener();
+}, false );
