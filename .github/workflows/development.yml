@@ -12,6 +12,9 @@ on:
       template_engine:
         type: string
         default: 'both'
+      report_slack:
+        type: boolean
+        default: true
 
   workflow_dispatch:
     inputs:
@@ -358,7 +361,7 @@ jobs:
   notify_slack:
     runs-on: ubuntu-latest
     needs: [ integration_tests, codeception_twig, codeception_smarty ]
-    if: always() && (github.event_name == 'workflow_dispatch' || github.event_name == 'schedule')
+    if: ${{ always() && inputs.report_slack }}
     steps:
       - name: Send custom JSON data to Slack workflow
         uses: slackapi/slack-github-action@v1.23.0
@@ -369,18 +372,18 @@ jobs:
           # Help: New lines can be easily added for texts bellow. Check how it's currently implemented in this example!
           payload: >
             {"text": "
-            ${{ github.event_name == 'workflow_dispatch' && 'Manual' || 'Scheduled' }} ${{ github.workflow }} workflow on ${{ github.repository }}
+            ${{ github.event_name == 'workflow_dispatch' && 'Manual' || 'Scheduled' }} ${{ github.workflow }} workflow on ${{ github.repository }} by ${{ github.actor }}
             ${{ (needs.integration_tests.result=='success' && needs.codeception_twig.result=='success' && needs.codeception_smarty.result=='success') && 'Successful' || 'Failed' }}
             ", "blocks": [{"type": "header","text": {"type": "plain_text", "emoji": true, "text": "
-            ${{ github.event_name == 'workflow_dispatch' && 'Manual' || 'Scheduled' }} ${{ github.workflow }} workflow on ${{ github.repository }}
+            ${{ github.event_name == 'workflow_dispatch' && 'Manual' || 'Scheduled' }} ${{ github.workflow }} workflow on ${{ github.repository }} by ${{ github.actor }}
             "}},{"type": "section","fields": [{"type": "mrkdwn","text": "
             *Status:* ${{ (needs.integration_tests.result=='success' && needs.codeception_twig.result=='success' && needs.codeception_smarty.result=='success') && ':heavy_check_mark:' || ':x:' }}
             "},{"type": "mrkdwn","text": "
-            Repository: <${{ github.server_url }}/${{ github.repository }}|${{ github.repository }}>
+            Repository: <${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}|${{ github.repository }}/actions/runs/${{ github.run_id }}>
             "}]},{"type": "section", "text": {"type": "mrkdwn", "text": "
-            \n* Integration tests job ${{ (needs.integration_tests.result=='success') && ':heavy_check_mark:' || ':x:' }}
-            \n* Codeception tests with twig job ${{ (needs.codeception_twig.result=='success') && ':heavy_check_mark:' || ':x:' }}
-            \n* Codeception tests with smarty job ${{ (needs.codeception_smarty.result=='success') && ':heavy_check_mark:' || ':x:' }}
+            \n* Integration tests job ${{ (needs.integration_tests.result=='success') && ':white_check_mark:' || ':x:' }}
+            \n* Codeception tests with twig job ${{ (needs.codeception_twig.result=='success') && ':white_check_mark:' || ':x:' }}
+            \n* Codeception tests with smarty job ${{ (needs.codeception_smarty.result=='success') && ':white_check_mark:' || ':x:' }}
             "}}, {"type": "divider"}]}
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}

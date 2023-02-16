@@ -13,7 +13,7 @@ modules:
               host: '%SELENIUM_SERVER_HOST%'
               browser: '%BROWSER_NAME%'
               port: '%SELENIUM_SERVER_PORT%'
-              window_size: 1200x1000
+              window_size: 1920x1024
               clear_cookies: true
         - Db:
               dsn: 'mysql:host=%DB_HOST%;dbname=%DB_NAME%;charset=utf8'
