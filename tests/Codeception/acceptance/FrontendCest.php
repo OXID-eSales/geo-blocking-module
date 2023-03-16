@@ -69,7 +69,7 @@ class FrontendCest
         $I->dontSee('United Kingdom', $userCheckout->shipAddressForm);
 
         $I->dontSeeCheckboxIsChecked($userCheckout->openShipAddressForm);
-        $userCheckout->goToNextStep();
+        $I->retryClick($userCheckout->nextStepButton);
         $I->see(Translator::translate('DD_FORM_VALIDATION_REQUIRED'));
     }
 

@@ -32,6 +32,7 @@ return [
     'SELENIUM_SERVER_PORT' => $seleniumServerPort,
     'SELENIUM_SERVER_HOST' => getenv('SELENIUM_SERVER_HOST') ?: 'selenium',
     'BROWSER_NAME'         => getenv('BROWSER_NAME') ?: 'chrome',
+    'THEME_ID' => getenv('THEME_ID') ?: 'twig',
     'PHP_BIN' => $php,
 ];
 
