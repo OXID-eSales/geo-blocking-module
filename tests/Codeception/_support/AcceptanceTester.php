@@ -45,11 +45,4 @@ class AcceptanceTester extends \Codeception\Actor
 
         exec((new Facts())->getShopRootPath() . '/bin/oe-console oe:module:' . $command . ' oegeoblocking');
     }
-
-    public function waitForPageLoad()
-    {
-        if (getenv('THEME_ID') !== 'apex') {
-//            parent::waitForPageLoad();
-        }
-    }
 }
