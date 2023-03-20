@@ -7,11 +7,6 @@
   "license": [
     "GPL-3.0-only"
   ],
-  "extra": {
-    "oxideshop": {
-      "target-directory": "oe/geoblocking"
-    }
-  },
   "minimum-stability": "dev",
   "prefer-stable": true,
   "prefer-dist": true,

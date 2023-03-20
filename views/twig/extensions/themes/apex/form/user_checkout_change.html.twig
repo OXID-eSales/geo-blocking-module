@@ -2,15 +2,8 @@
 {% block user_checkout_billing_feedback %}
     {{ parent() }}
     {% block oegeoblocking_user_checkout_billing_feedback %}
-        <div class="mb-3">
-            <style>
-                .invoiceonlyhint {
-                    margin-bottom: 0;
-                }
-            </style>
-            <div id="oegb-hint-message"  class="invoiceonlyhint hidden alert-warning">
-                {{ translate({ ident: "OEGEOBLOCKING_HINT" }) }}
-            </div>
+        <div id="oegb-hint-message"  class="invoiceonlyhint hidden text-warning mb-3">
+            {{ translate({ ident: "OEGEOBLOCKING_HINT" }) }}
         </div>
     {% endblock %}
 {% endblock %}
