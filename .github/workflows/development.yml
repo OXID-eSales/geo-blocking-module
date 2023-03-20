@@ -243,7 +243,7 @@ jobs:
       - name: Install codeception-page-objects and codeception-modules for apex theme
         if: ${{ inputs.template_engine == 'both' || inputs.template_engine == 'twig-apex' }}
         run: |
-          docker-compose exec -T php composer require oxid-esales/codeception-page-objects:dev-b-7.0.x-apex_tests-OXDEV-6696 --no-update
+          docker-compose exec -T php composer require oxid-esales/codeception-page-objects:dev-b-7.0.x-APEX --no-update
           docker-compose exec -T php composer require oxid-esales/codeception-modules:dev-b-7.0.x-APEX --no-update
           docker-compose exec -T php composer update --no-interaction
 
