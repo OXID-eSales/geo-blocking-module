@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Development workflows with test runners
 - Module works on smarty engine (Smarty related extensions in views/smarty resp. views/admin_smarty directory)
 - Module works on twig engine (Twig related extensions in views/twig resp. views/admin_twig directory)
+- Support for APEX theme.
 
 ### Changed
 - Adapted module to work with OXID eShop 7.0.x
