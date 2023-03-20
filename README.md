@@ -11,13 +11,10 @@ Further, this module provides a possibility to mark countries as "Invoice only" 
 * Module ^v1.1 (or b-1.x branch) works with shop ^v6.2.0
 * Module b-7.0 branch is compatible with OXID eShop b-7.0
 
-## Installation
+### Module installation via composer
 
-Run the following command to install module:
-
-```bash
-composer require oxid-esales/geo-blocking-module
-```
+* **composer require oxid-esales/geo-blocking-module:^1.1.0** to install the released version compatible with OXID eShop 6.2.x - 6.5.x compilations
+* **composer require oxid-esales/geo-blocking-module:dev-b-7.0.x** to install the latest unreleased version from github, compatible with shop b-7.0.x branches
 
 ## Documentation
 
