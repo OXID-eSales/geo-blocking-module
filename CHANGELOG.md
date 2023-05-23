@@ -21,6 +21,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
     - Application folder omitted
 - All assets moved to `assets` folder to be available after module installation
 
+## [1.1.2] - unreleased
+
+### Changed
+- License updated - now using OXID Module and Component License
+
 ## [1.1.1] - 2022-06-13
 
 ### Fixed
@@ -41,6 +46,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [1.0.0] - 2019-02-25
 
 [Unreleased]: https://github.com/OXID-eSales/geo-blocking-module/compare/b-1.x...master
+[1.1.2]: https://github.com/OXID-eSales/geo-blocking-module/compare/v1.1.1...b-1.x
 [1.1.1]: https://github.com/OXID-eSales/geo-blocking-module/compare/v1.1.0...v1.1.1
 [1.1.0]: https://github.com/OXID-eSales/geo-blocking-module/compare/v1.0.0...v1.1.0
 [1.0.0]: https://github.com/OXID-eSales/geo-blocking-module/compare/c0cb05009601a58d0815efa9e09bd4ad758b1595...v1.0.0
