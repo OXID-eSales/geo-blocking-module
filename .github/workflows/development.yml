@@ -321,6 +321,7 @@ jobs:
 
       - name: Install smarty template engine and flow theme
         run: |
+          docker-compose exec -T php composer require oxid-esales/codeception-page-objects:dev-b-7.0.x-SMARTY --no-update
           docker-compose exec -T php composer require oxid-esales/smarty-component:dev-b-7.0.x --no-update
           docker-compose exec -T php composer require oxid-esales/smarty-admin-theme:dev-b-7.0.x --no-update
           docker-compose exec -T php composer require oxid-esales/flow-theme:dev-b-7.0.x --no-update
