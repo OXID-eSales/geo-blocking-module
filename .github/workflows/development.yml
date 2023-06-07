@@ -246,16 +246,15 @@ jobs:
       - name: Install codeception-page-objects and codeception-modules for twig theme
         if: ${{ inputs.template_engine == 'both' || inputs.template_engine == 'twig-twig' }}
         run: |
-          docker-compose exec -T php composer require oxid-esales/codeception-page-objects:dev-b-7.0.x-twig-theme --no-update
-          docker-compose exec -T php composer require oxid-esales/codeception-modules:dev-b-7.0.x-twig-theme --no-update
+          docker-compose exec -T php composer require oxid-esales/codeception-page-objects:dev-b-7.0.x-SMARTY --no-update
           docker-compose exec -T php composer update --no-interaction
 
-      - name: Reconfigure codeception for apex theme
+      - name: Reconfigure codeception for twig theme
         if: ${{ inputs.template_engine == 'both' || inputs.template_engine == 'twig-twig' }}
         run: |
           perl -pi \
-          -e 's#views/apex#views/twig#g;' \
-          source/test-module/tests/Codeception/acceptance.suite.yml
+            -e 's#views/apex#views/twig#g;' \
+            source/test-module/tests/Codeception/acceptance.suite.yml
           docker-compose exec -T php bin/oe-console oe:database:reset \
             --db-host=mysql --db-port=3306 --db-name=example --db-user=root --db-password=root --force
           docker-compose exec -T php bin/oe-console oe:module:activate oegeoblocking
@@ -308,11 +307,11 @@ jobs:
       - name: Reconfigure codeception for smarty themes
         run: |
           perl -pi \
-          -e 's#admin_twig#admin_smarty#g;' \
-          source/test-module/tests/Codeception/acceptance.suite.yml
+            -e 's#admin_twig#admin_smarty#g;' \
+            source/test-module/tests/Codeception/acceptance.suite.yml
           perl -pi \
-          -e 's#views/twig#views/flow/translations#g;' \
-          source/test-module/tests/Codeception/acceptance.suite.yml
+            -e 's#views/twig#views/flow/translations#g;' \
+            source/test-module/tests/Codeception/acceptance.suite.yml
 
       - name: Start containers
         run: |
