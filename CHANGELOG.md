@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## [2.0.0] - 2023-06-07
+## [2.0.0] - 2023-06-08
 
 ### Added
 - Support for twig template engine
@@ -45,7 +45,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [1.0.0] - 2019-02-25
 
-[Unreleased]: https://github.com/OXID-eSales/geo-blocking-module/compare/b-1.x...master
+[2.0.0]: https://github.com/OXID-eSales/geo-blocking-module/compare/b-1.x...v2.0.0
 [1.1.2]: https://github.com/OXID-eSales/geo-blocking-module/compare/v1.1.1...b-1.x
 [1.1.1]: https://github.com/OXID-eSales/geo-blocking-module/compare/v1.1.0...v1.1.1
 [1.1.0]: https://github.com/OXID-eSales/geo-blocking-module/compare/v1.0.0...v1.1.0
