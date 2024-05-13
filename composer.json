@@ -11,15 +11,41 @@
   "prefer-stable": true,
   "prefer-dist": true,
   "conflict": {
-    "oxid-esales/oxideshop-ce": "<7.0"
+    "oxid-esales/oxideshop-ce": "<7.1"
   },
   "require": {
-    "php": "^8.0"
+    "php": "^8.1"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^10.4",
+    "oxid-esales/oxideshop-ce": "dev-b-7.1.x",
+    "mikey179/vfsstream": "~1.6.8",
+    "codeception/module-rest": "*",
+    "codeception/module-phpbrowser": "*",
+    "codeception/module-db": "*",
+    "codeception/codeception": "^5.0",
+    "oxid-esales/codeception-modules": "dev-b-7.1.x"
   },
   "autoload": {
     "psr-4": {
       "OxidEsales\\GeoBlocking\\": "src/",
       "OxidEsales\\GeoBlocking\\Tests\\": "tests/"
+    }
+  },
+  "scripts": {
+    "tests-integration": "XDEBUG_MODE=coverage vendor/bin/phpunit --bootstrap=/var/www/source/bootstrap.php --config=tests/ --testsuite=Integration --coverage-clover=tests/Reports/coverage_integration_geo-blocking-module.xml",
+    "tests-coverage": "XDEBUG_MODE=coverage vendor/bin/phpunit --coverage-text --bootstrap=/var/www/source/bootstrap.php --config=tests/ --coverage-html=tests/reports/coverage",
+
+    "tests-codeception": [
+      "Composer\\Config::disableProcessTimeout",
+      "MODULE_IDS=oe_graphql_base SHOP_ROOT_PATH=/var/www vendor/bin/codecept run Acceptance -c tests/codeception.yml --no-redirect"
+    ]
+
+  },
+  "config": {
+    "allow-plugins": {
+      "oxid-esales/oxideshop-unified-namespace-generator": true,
+      "oxid-esales/oxideshop-composer-plugin": false
     }
   }
 }
