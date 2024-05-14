@@ -7,7 +7,7 @@
 namespace OxidEsales\GeoBlocking\Tests\Integration\Component;
 
 use OxidEsales\Eshop\Application\Component\UserComponent;
-use OxidEsales\Eshop\Application\Model\Address;
+use OxidEsales\GeoBlocking\Model\Address ;
 use OxidEsales\Eshop\Application\Model\User;
 use OxidEsales\Eshop\Core\Field;
 use OxidEsales\Eshop\Core\Registry;
@@ -48,13 +48,14 @@ class UserComponentTest extends TestCase
         /** @var \OxidEsales\GeoBlocking\Component\UserComponent $userComponent */
         $userComponent = oxNew(UserComponent::class);
         $_GET['oxaddressid'] = 'address_id';
+        $_GET['deladr'] = 'test';
 
         $addressMock = $this->getMockBuilder(Address::class)
-            ->setMethods(['oeGeoBlockingIsUserChangingAddress'])
+            ->onlyMethods(['oeGeoBlockingIsUserChangingAddress'])
             ->getMock();
         $addressMock->method('oeGeoBlockingIsUserChangingAddress')->willReturn(true);
         Registry::set(Address::class, $addressMock);
-
+		
         $this->assertFalse($userComponent->changeUserWithoutRedirect());
         $errors = Registry::getSession()->getVariable('Errors');
         $this->assertSame(1, count($errors));
@@ -67,7 +68,7 @@ class UserComponentTest extends TestCase
         $_GET['oxaddressid'] = 'address_id';
 
         $addressMock = $this->getMockBuilder(Address::class)
-            ->setMethods(['oeGeoBlockingIsUserChangingAddress'])
+            ->onlyMethods(['oeGeoBlockingIsUserChangingAddress'])
             ->getMock();
         $addressMock->method('oeGeoBlockingIsUserChangingAddress')->willReturn(false);
         Registry::set(Address::class, $addressMock);
@@ -105,6 +106,8 @@ class UserComponentTest extends TestCase
     {
         $user = new User();
         $user->setId('user_id');
+        $user->assign(['oxpassword' => 'test']);
+        $user->assign(['oxusername' => 'test']);
         $user->save();
         Registry::getSession()->setVariable('usr', 'user_id');
     }

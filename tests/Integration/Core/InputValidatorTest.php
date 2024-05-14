@@ -54,7 +54,7 @@ class InputValidatorTest extends TestCase
         $address2->save();
     }
 
-    public function checkoutCountriesProvider()
+    public static function checkoutCountriesProvider()
     {
         return [
             [['oxuser__oxcountryid' => 'country_id'], ['oxaddress__oxcountryid' => 'country_id']],
