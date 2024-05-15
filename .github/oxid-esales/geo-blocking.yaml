@@ -1,0 +1,50 @@
+install_shop_with_modules:
+  cache:
+    prepared_shop: false
+  composer:
+    transform: |
+      {
+          "require": {
+              "oxid-esales/oxideshop-ce": "{{ .Data.global.composer.dev_ref }}",
+              "oxid-esales/twig-component": "{{ .Data.global.composer.dev_ref }}",
+              "oxid-esales/twig-admin-theme": "{{ .Data.global.composer.dev_ref }}",
+              "oxid-esales/apex-theme": "{{ .Data.global.composer.dev_ref }}",
+              "oxid-esales/geo-blocking-module": "{{ .Data.global.composer.ref_name }}"
+          },
+          "repositories": {
+            "oxid-esales/geo-blocking-module": {
+              "type": "git",
+              "url": "https://github.com/OXID-eSales/geo-blocking-module.git"
+            }
+          }
+      }
+  custom_script_container: |
+    vendor/bin/oe-console oe:theme:activate apex
+    vendor/bin/oe-console oe:module:activate oegeoblocking
+
+runscript: &runscript
+  matrix:
+    script: |
+      [
+        "geo_blocking:tests-integration",
+        "geo_blocking:tests-codeception"
+      ]
+  geo_blocking:
+    path: 'vendor/oxid-esales/geo-blocking-module'
+
+sonarcloud:
+  matrix:
+    testplan: '["-"]'
+  strip_path: '/var/www/vendor/oxid-esales/geo-blocking-module/'
+  project_key: 'OXID-eSales_geo-blocking-module'
+  project_name: 'oxid-esales/geo-blocking-module'
+  organization: 'oxid-esales'
+  parameters: |
+    -Dsonar.language=php
+    -Dsonar.scm.provider=git
+    -Dsonar.sources=src
+    -Dsonar.tests=tests
+    -Donar.php.phpstan.reportPaths=coverage-reports/phpstan.report.json
+
+finish:
+  slack_title: 'Geo Blocking ({{ .Data.global.git.shop_ref }}) by {{ .Github.Actor }}'

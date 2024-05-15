@@ -1,14 +1,25 @@
-name: Scheduled weekly runs
+name: Scheduled weekly run
+# Matrix workflow using re-usable github actions
 
 on:
   schedule:
-    - cron: '0 0 */7 * *'
+    - cron: '16 1 */7 * *'
 
 jobs:
-  p80m57both:
-    name: 'Php-8.0-Mysql-5.7'
-    uses: ./.github/workflows/dispatch_module.yaml
-    secrets: inherit
+  jeo_blocking_php82_mysql80:
+    if: always()
+    uses: oxid-eSales/github-actions/.github/workflows/universal_workflow_light.yaml@v4
     with:
-      php: '8.0'
-      mysql: '5.7.37'
+      testplan: '~/defaults/7.1.x.yaml,~/defaults/scheduled.yaml,~/geo-blocking.yaml'
+      runs_on: '"ubuntu-latest"'
+      defaults: 'v4'
+      plan_folder: '.github/oxid-esales'
+    secrets:
+      DOCKER_HUB_USER: ${{ secrets.DOCKER_HUB_USER }}
+      DOCKER_HUB_TOKEN: ${{ secrets.DOCKER_HUB_TOKEN }}
+      CACHE_ENDPOINT: ${{ secrets.CACHE_ENDPOINT }}
+      CACHE_ACCESS_KEY: ${{ secrets.CACHE_ACCESS_KEY }}
+      CACHE_SECRET_KEY: ${{ secrets.CACHE_SECRET_KEY }}
+      enterprise_github_token: ${{ secrets.enterprise_github_token }}
+      SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
