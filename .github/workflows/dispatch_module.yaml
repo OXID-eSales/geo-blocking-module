@@ -1,4 +1,4 @@
-name: Development
+name: Manual trigger
 
 on:
   workflow_call:
