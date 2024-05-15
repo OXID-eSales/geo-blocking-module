@@ -11,6 +11,7 @@ use Codeception\Util\Fixtures;
 use OxidEsales\Codeception\Module\Translation\Translator;
 use OxidEsales\Codeception\Page\Checkout\UserCheckout;
 use OxidEsales\Codeception\Step\Basket;
+use OxidEsales\GeoBlocking\Tests\Codeception\Support\AcceptanceTester;
 
 class FrontendCest
 {

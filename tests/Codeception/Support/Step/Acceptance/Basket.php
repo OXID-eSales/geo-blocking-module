@@ -3,12 +3,12 @@
  * Copyright © OXID eSales AG. All rights reserved.
  * See LICENSE file for license details.
  */
-namespace OxidEsales\GeoBlocking\Tests\Codeception\Step\Acceptance;
+namespace OxidEsales\GeoBlocking\Tests\Codeception\Support\Step\Acceptance;
 
 use OxidEsales\Codeception\Page\Checkout\UserCheckout;
 use OxidEsales\Codeception\Page\Checkout\Basket as BasketPage;
 use OxidEsales\Codeception\Module\Translation\Translator;
-use OxidEsales\GeoBlocking\Tests\Codeception\AcceptanceTester;
+use OxidEsales\GeoBlocking\Tests\Codeception\Support\AcceptanceTester;
 
 class Basket extends AcceptanceTester
 {

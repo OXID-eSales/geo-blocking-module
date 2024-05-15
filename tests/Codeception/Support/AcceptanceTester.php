@@ -4,7 +4,7 @@
  * See LICENSE file for license details.
  */
 
-namespace OxidEsales\GeoBlocking\Tests\Codeception;
+namespace OxidEsales\GeoBlocking\Tests\Codeception\Support;
 
 use OxidEsales\Codeception\Page\Home;
 use OxidEsales\Facts\Facts;
@@ -43,6 +43,6 @@ class AcceptanceTester extends \Codeception\Actor
     {
         $command = $active ? 'activate' : 'deactivate';
 
-        exec((new Facts())->getShopRootPath() . '/bin/oe-console oe:module:' . $command . ' oegeoblocking');
+        exec((new Facts())->getShopRootPath() . '/vendor/bin/oe-console oe:module:' . $command . ' oegeoblocking');
     }
 }

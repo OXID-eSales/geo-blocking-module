@@ -20,11 +20,13 @@
     "phpunit/phpunit": "^10.4",
     "oxid-esales/oxideshop-ce": "dev-b-7.1.x",
     "mikey179/vfsstream": "~1.6.8",
-    "codeception/module-rest": "*",
-    "codeception/module-phpbrowser": "*",
-    "codeception/module-db": "*",
     "codeception/codeception": "^5.0",
-    "oxid-esales/codeception-modules": "dev-b-7.1.x"
+    "codeception/module-asserts": "*",
+    "codeception/module-db": "*",
+    "codeception/module-filesystem": "*",
+    "codeception/module-webdriver": "*",
+    "oxid-esales/codeception-modules": "dev-b-7.1.x",
+    "oxid-esales/codeception-page-objects": "dev-b-7.1.x"
   },
   "autoload": {
     "psr-4": {
@@ -38,7 +40,7 @@
 
     "tests-codeception": [
       "Composer\\Config::disableProcessTimeout",
-      "MODULE_IDS=oe_graphql_base SHOP_ROOT_PATH=/var/www vendor/bin/codecept run Acceptance -c tests/codeception.yml --no-redirect"
+      "THEME_ID=apex MODULE_IDS=oegeoblocking SHOP_ROOT_PATH=/var/www vendor/bin/codecept run Acceptance -c tests/codeception.yml --no-redirect"
     ]
 
   },
