@@ -9,7 +9,7 @@ namespace OxidEsales\DoctrineMigrationWrapper;
 use OxidEsales\Facts\Config\ConfigFile;
 use OxidEsales\Facts\Facts;
 use OxidEsales\Codeception\Module\Database\DatabaseDefaultsFileGenerator;
-use Webmozart\PathUtil\Path;
+use Symfony\Component\Filesystem\Path;
 
 $facts = new Facts();
 
