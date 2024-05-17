@@ -6,7 +6,7 @@ on:
     - cron: '16 1 */7 * *'
 
 jobs:
-  jeo_blocking_php82_mysql80:
+  geo_blocking_php82_mysql80:
     if: always()
     uses: oxid-eSales/github-actions/.github/workflows/universal_workflow_light.yaml@v4
     with:

@@ -8,7 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Added
 - PHP 8.2
-- Upgraded to work with shop compilation 7.1.0
+- Upgraded to work with OXID eShop 7.0.x
 
 ### Changed
 - New module logo

@@ -46,7 +46,7 @@ modules:
         - \OxidEsales\Codeception\Module\Translation\TranslationsModule:
               shop_path: '%SHOP_SOURCE_PATH%'
               paths:
-                - Application/views/apex
+                - Application/views/%THEME_ID%
                 - Application/views/admin_twig
                 - ../vendor/oxid-esales/geo-blocking-module/views/admin_twig
                 - ../vendor/oxid-esales/geo-blocking-module/translations

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright © OXID eSales AG. All rights reserved.
  * See LICENSE file for license details.
@@ -7,7 +8,7 @@
 namespace OxidEsales\GeoBlocking\Tests\Integration\Component;
 
 use OxidEsales\Eshop\Application\Component\UserComponent;
-use OxidEsales\GeoBlocking\Model\Address ;
+use OxidEsales\GeoBlocking\Model\Address;
 use OxidEsales\Eshop\Application\Model\User;
 use OxidEsales\Eshop\Core\Field;
 use OxidEsales\Eshop\Core\Registry;
@@ -55,7 +56,7 @@ class UserComponentTest extends TestCase
             ->getMock();
         $addressMock->method('oeGeoBlockingIsUserChangingAddress')->willReturn(true);
         Registry::set(Address::class, $addressMock);
-		
+
         $this->assertFalse($userComponent->changeUserWithoutRedirect());
         $errors = Registry::getSession()->getVariable('Errors');
         $this->assertSame(1, count($errors));
@@ -106,8 +107,10 @@ class UserComponentTest extends TestCase
     {
         $user = new User();
         $user->setId('user_id');
-        $user->assign(['oxpassword' => 'test']);
-        $user->assign(['oxusername' => 'test']);
+        $user->assign([
+            'oxusername' => 'test',
+            'oxpassword' => md5('test')
+        ]);
         $user->save();
         Registry::getSession()->setVariable('usr', 'user_id');
     }

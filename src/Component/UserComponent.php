@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright © OXID eSales AG. All rights reserved.
  * See LICENSE file for license details.
@@ -6,7 +7,7 @@
 
 namespace OxidEsales\GeoBlocking\Component;
 
-use OxidEsales\GeoBlocking\Model\Address ;
+use OxidEsales\GeoBlocking\Model\Address;
 use OxidEsales\Eshop\Core\Registry;
 use OxidEsales\GeoBlocking\Service\CountryToShopService;
 

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright © OXID eSales AG. All rights reserved.
  * See LICENSE file for license details.
@@ -7,6 +8,8 @@
 namespace OxidEsales\GeoBlocking\Tests\Codeception\Support;
 
 use OxidEsales\Codeception\Page\Home;
+use OxidEsales\EshopCommunity\Internal\Container\ContainerFactory;
+use OxidEsales\EshopCommunity\Internal\Framework\Module\Setup\Bridge\ModuleActivationBridgeInterface;
 use OxidEsales\Facts\Facts;
 
 /**
@@ -39,10 +42,11 @@ class AcceptanceTester extends \Codeception\Actor
         return $homePage;
     }
 
-    public function setModuleActive(bool $active = true): void
+    public function setModuleActive(): void
     {
-        $command = $active ? 'activate' : 'deactivate';
-
-        exec((new Facts())->getShopRootPath() . '/vendor/bin/oe-console oe:module:' . $command . ' oegeoblocking');
+        ContainerFactory::getInstance()
+            ->getContainer()
+            ->get(ModuleActivationBridgeInterface::class)
+            ->activate('oegeoblocking', 1);
     }
 }
