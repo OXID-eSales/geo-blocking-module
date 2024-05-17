@@ -7,9 +7,10 @@ Further, this module provides a possibility to mark countries as "Invoice only" 
 
 ## Compatability
 
-* Module v1.0 version works with OXID eShop compilation v6.0.0 to v6.1.x
-* Module ^v1.1 (or b-1.x branch) works with shop ^v6.2.0
+* b-7.1.x - compatible with OXID eShop b-7.1.x branch, works with `Twig engine` only
 * Module v2.0 (or b-7.0.x branch) branch is compatible with OXID eShop ^7.0
+* Module ^v1.1 (or b-1.x branch) works with shop ^v6.2.0
+* Module v1.0 version works with OXID eShop compilation v6.0.0 to v6.1.x
 
 ### Module installation via composer
 

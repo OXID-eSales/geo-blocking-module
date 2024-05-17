@@ -4,6 +4,22 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2.1.0] - Unreleased
+
+### Added
+- PHP 8.2
+- Upgraded to work with shop compilation 7.1.0
+
+### Changed
+- New module logo
+- Updated the structure to Codeception 5
+- PhpUnit updated to 10+
+- Modify GitHub workflows to use new light workflow
+
+### Removed
+- PHP 8.0 support
+- Legacy Smarty engine variant is not supported anymore
+
 ## [2.0.0] - 2023-06-08
 
 ### Added
