@@ -29,7 +29,7 @@ $aModule = [
         'en' => 'The module enables OXID eShop to be compliant with the EU geo-blocking regulations.',
     ],
     'thumbnail' => '/out/pictures/logo.png',
-    'version' => '2.0.0',
+    'version' => '2.1.0-rc.1',
     'author' => 'OXID eSales AG',
     'url' => 'https://www.oxid-esales.com',
     'email' => 'info@oxid-esales.com',
