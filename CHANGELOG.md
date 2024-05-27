@@ -4,11 +4,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## [2.1.0-rc.1] - 2024-05-24
+## [2.1.0-rc.1] - 2024-05-27
 
 ### Added
 - PHP 8.2
-- Upgraded to work with OXID eShop 7.0.x
+- Upgraded to work with OXID eShop 7.1.x
 
 ### Changed
 - New module logo
