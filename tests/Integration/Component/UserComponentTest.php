@@ -9,6 +9,7 @@ namespace OxidEsales\GeoBlocking\Tests\Integration\Component;
 
 use OxidEsales\Eshop\Application\Component\UserComponent;
 use OxidEsales\GeoBlocking\Model\Address;
+use OxidEsales\Eshop\Application\Model\Address as EShopAddress;
 use OxidEsales\Eshop\Application\Model\User;
 use OxidEsales\Eshop\Core\Field;
 use OxidEsales\Eshop\Core\Registry;
@@ -29,11 +30,11 @@ class UserComponentTest extends TestCase
         $countryToShop->oegeoblocking_country_to_shop__invoice_only = new Field(1);
         $countryToShop->save();
 
-        $address = new Address();
+        $address = new EShopAddress();
         $address->setId('address_id');
         $address->save();
 
-        $address2 = new Address();
+        $address2 = new EShopAddress();
         $address2->setId('address_id2');
         $address2->save();
     }
@@ -55,7 +56,7 @@ class UserComponentTest extends TestCase
             ->onlyMethods(['oeGeoBlockingIsUserChangingAddress'])
             ->getMock();
         $addressMock->method('oeGeoBlockingIsUserChangingAddress')->willReturn(true);
-        Registry::set(Address::class, $addressMock);
+        Registry::set(EShopAddress::class, $addressMock);
 
         $this->assertFalse($userComponent->changeUserWithoutRedirect());
         $errors = Registry::getSession()->getVariable('Errors');
@@ -72,7 +73,7 @@ class UserComponentTest extends TestCase
             ->onlyMethods(['oeGeoBlockingIsUserChangingAddress'])
             ->getMock();
         $addressMock->method('oeGeoBlockingIsUserChangingAddress')->willReturn(false);
-        Registry::set(Address::class, $addressMock);
+        Registry::set(EShopAddress::class, $addressMock);
 
         $this->assertNotFalse($userComponent->changeUserWithoutRedirect());
         $errors = Registry::getSession()->getVariable('Errors');

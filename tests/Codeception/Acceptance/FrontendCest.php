@@ -17,15 +17,7 @@ class FrontendCest
 {
     public function _before(AcceptanceTester $I)
     {
-        $I->setModuleActive();
-
-        $I->deleteFromDatabase('oxarticles', ['OXID' => '1000']);
-        $I->deleteFromDatabase('oxuser', ['OXID' => 'oegeoblockingtestuser']);
-        $I->deleteFromDatabase('oxuser', ['OXUSERNAME' => 'test_registration@oxid-esales.local']);
-        $I->deleteFromDatabase('oxaddress', ['OXID' => 'pickup_address_id']);
-        $I->deleteFromDatabase('oxaddress', ['OXID' => 'user_defined_pickup_address_id']);
         $I->haveInDatabase('oegeoblocking_country_to_shop', Fixtures::get('countryToShopData'));
-        $I->updateConfigInDatabase('stickyHeader', false, 'bool');
     }
 
     public function registerUserWithCountryWhichIsInvoiceOnly(AcceptanceTester $I)

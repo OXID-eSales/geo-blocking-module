@@ -23,6 +23,10 @@ class UserAddressListTest extends TestCase
 
         $user = new User();
         $user->setId('user_id');
+        $user->assign([
+            'oxusername' => 'test',
+            'oxpassword' => md5('test')
+        ]);
         $user->save();
 
         $countryToShop = new CountryToShop();

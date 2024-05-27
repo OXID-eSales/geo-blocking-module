@@ -7,7 +7,7 @@
 
 namespace OxidEsales\GeoBlocking\Component;
 
-use OxidEsales\GeoBlocking\Model\Address;
+use OxidEsales\Eshop\Application\Model\Address;
 use OxidEsales\Eshop\Core\Registry;
 use OxidEsales\GeoBlocking\Service\CountryToShopService;
 

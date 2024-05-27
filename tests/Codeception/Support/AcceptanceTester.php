@@ -41,12 +41,4 @@ class AcceptanceTester extends \Codeception\Actor
         $I->amOnPage($homePage->URL);
         return $homePage;
     }
-
-    public function setModuleActive(): void
-    {
-        ContainerFactory::getInstance()
-            ->getContainer()
-            ->get(ModuleActivationBridgeInterface::class)
-            ->activate('oegeoblocking', 1);
-    }
 }
