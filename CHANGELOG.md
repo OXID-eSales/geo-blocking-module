@@ -4,6 +4,9 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2.1.0] - 2024-06-26
+This is the stable release for v2.1.0. No changes have been made since v2.1.0-rc.1.
+
 ## [2.1.0-rc.1] - 2024-05-27
 
 ### Added
@@ -61,6 +64,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [1.0.0] - 2019-02-25
 
+[2.1.0]: https://github.com/OXID-eSales/geo-blocking-module/compare/v2.1.0-rc.1...v2.1.0
 [2.1.0-rc.1]: https://github.com/OXID-eSales/geo-blocking-module/compare/v2.0.0...v2.1.0-rc.1
 [2.0.0]: https://github.com/OXID-eSales/geo-blocking-module/compare/v1.1.1...v2.0.0
 [1.1.2]: https://github.com/OXID-eSales/geo-blocking-module/compare/v1.1.1...v1.1.2
