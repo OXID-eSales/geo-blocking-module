@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright © OXID eSales AG. All rights reserved.
  * See LICENSE file for license details.
@@ -17,22 +18,22 @@ class OrderController extends OrderController_parent
     /**
      * @see \OxidEsales\Eshop\Application\Controller\OrderController::execute()
      *
-     * @return string
+     * @return string|null
      */
     public function execute()
     {
         $user = $this->getUser();
-        $billingAddressParameters['oxuser__oxcountryid'] = $user->oxuser__oxcountryid->value;
+        $billingAddrParams['oxuser__oxcountryid'] = $user->getFieldData('oxcountryid');
         $shippingAddress = $this->getDelAddress();
         if (is_object($shippingAddress)) {
-            $shippingAddressParameters['oxaddress__oxcountryid'] = $shippingAddress->oxaddress__oxcountryid->value;
+            $shippingAddrParams['oxaddress__oxcountryid'] = $shippingAddress->getFieldData('oxcountryid');
         } else {
-            $shippingAddressParameters['oxaddress__oxcountryid'] = $user->oxuser__oxcountryid->value;
+            $shippingAddrParams['oxaddress__oxcountryid'] = $user->getFieldData('oxcountryid');
         }
 
         /** @var InputValidator $inputValidator */
         $inputValidator = Registry::getInputValidator();
-        $inputValidator->checkCountries($user, $billingAddressParameters, $shippingAddressParameters);
+        $inputValidator->checkCountries($user, $billingAddrParams, $shippingAddrParams);
         if ($error = Registry::getInputValidator()->getFirstValidationError()) {
             Registry::getUtilsView()->addErrorToDisplay($error);
             return 'user';

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright © OXID eSales AG. All rights reserved.
  * See LICENSE file for license details.
@@ -25,7 +26,7 @@ return [
             'OXPRICE' => 10,
             'OXUNITNAME' => 'kg',
             'OXUNITQUANTITY' => 2,
-            'OXVAT' => NULL,
+            'OXVAT' => null,
             'OXWEIGHT' => 24,
             'OXSTOCK' => 15,
             'OXSTOCKFLAG' => 1,

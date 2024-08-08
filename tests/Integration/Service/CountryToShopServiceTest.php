@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright © OXID eSales AG. All rights reserved.
  * See LICENSE file for license details.
@@ -35,7 +36,7 @@ class CountryToShopServiceTest extends TestCase
         $countryToShop->load('test_model_id');
         $countryToShop->delete();
     }
-    
+
     public function testGetByCountryId()
     {
         $service = new \OxidEsales\GeoBlocking\Service\CountryToShopService();

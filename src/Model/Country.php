@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright © OXID eSales AG. All rights reserved.
  * See LICENSE file for license details.
@@ -20,6 +21,6 @@ class Country extends Country_parent
     {
         $countryToShopService = oxNew(CountryToShopService::class);
         $invoiceCountryToShop = $countryToShopService->getByCountryId($this->getId());
-        return (bool) $invoiceCountryToShop->oegeoblocking_country_to_shop__invoice_only->value;
+        return (bool) $invoiceCountryToShop->getFieldData('invoice_only');
     }
 }

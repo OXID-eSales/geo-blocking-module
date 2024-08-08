@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright © OXID eSales AG. All rights reserved.
  * See LICENSE file for license details.
@@ -45,7 +46,7 @@ class PickupAddressServiceTest extends TestCase
         $countryToShop->load('test_model_id');
         $countryToShop->delete();
     }
-    
+
     public function testGetByCountryId()
     {
         $service = new PickupAddressService();

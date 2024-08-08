@@ -1,11 +1,11 @@
 <?php
+
 /**
  * Copyright © OXID eSales AG. All rights reserved.
  * See LICENSE file for license details.
  */
 
 namespace OxidEsales\GeoBlocking\Tests\Integration\Controller\Admin;
-
 
 use OxidEsales\Eshop\Application\Controller\Admin\CountryMain;
 use OxidEsales\Eshop\Application\Model\Address;

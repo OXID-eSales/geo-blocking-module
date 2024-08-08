@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright © OXID eSales AG. All rights reserved.
  * See LICENSE file for license details.
@@ -34,7 +35,8 @@ class CountryMain extends CountryMain_parent
             $this->_aViewData['pickupAddress'] = oxNew(PickupAddressService::class)->getByCountryId($country->getId());
 
             $countryListService = oxNew(NotInvoiceOnlyCountryListService::class);
-            $this->_aViewData["countryList"] = $countryListService->getWithSelectedLanguage(Registry::getLang()->getObjectTplLanguage());
+            $this->_aViewData["countryList"] =
+                $countryListService->getWithSelectedLanguage(Registry::getLang()->getObjectTplLanguage());
         }
 
         return $templateName;
@@ -42,6 +44,9 @@ class CountryMain extends CountryMain_parent
 
     /**
      * @see \OxidEsales\Eshop\Application\Controller\Admin\CountryMain::save()
+     *
+     * @return void
+     * @throws \Exception
      */
     public function save()
     {

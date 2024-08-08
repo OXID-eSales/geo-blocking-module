@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright © OXID eSales AG. All rights reserved.
  * See LICENSE file for license details.
@@ -40,7 +41,9 @@ class PickupAddressService
                       and oegeoblocking_country_to_shop.oxshopid = '{$shopId}'";
 
         $oxId = DatabaseProvider::getDb()->getOne($selectQuery);
-        $this->address->load($oxId);
+        if ($oxId) {
+            $this->address->load($oxId);
+        }
 
         return $this->address;
     }
@@ -57,7 +60,9 @@ class PickupAddressService
                       and oegeoblocking_country_to_shop.oxshopid = '{$shopId}'";
 
         $oxId = DatabaseProvider::getDb()->getOne($selectQuery);
-        $this->address->load($oxId);
+        if ($oxId) {
+            $this->address->load($oxId);
+        }
 
         return $this->address;
     }

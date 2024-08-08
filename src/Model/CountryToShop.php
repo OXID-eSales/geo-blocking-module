@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright © OXID eSales AG. All rights reserved.
  * See LICENSE file for license details.
@@ -6,17 +7,16 @@
 
 namespace OxidEsales\GeoBlocking\Model;
 
-use OxidEsales\Eshop\Core\DatabaseProvider;
 use OxidEsales\Eshop\Core\Field;
 use OxidEsales\Eshop\Core\Model\BaseModel;
 
 /**
- * @property Field oegeoblocking_country_to_shop__oxid
- * @property Field oegeoblocking_country_to_shop__oxcountryid
- * @property Field oegeoblocking_country_to_shop__oxshopid
- * @property Field oegeoblocking_country_to_shop__invoice_only
- * @property Field oegeoblocking_country_to_shop__pickup_addressid
- * @property Field oegeoblocking_country_to_shop__pickup_address_active
+ * @property Field $oegeoblocking_country_to_shop__oxid
+ * @property Field $oegeoblocking_country_to_shop__oxcountryid
+ * @property Field $oegeoblocking_country_to_shop__oxshopid
+ * @property Field $oegeoblocking_country_to_shop__invoice_only
+ * @property Field $oegeoblocking_country_to_shop__pickup_addressid
+ * @property Field $oegeoblocking_country_to_shop__pickup_address_active
  */
 class CountryToShop extends BaseModel
 {

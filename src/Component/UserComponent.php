@@ -25,13 +25,13 @@ class UserComponent extends UserComponent_parent
      */
     public function changeUserWithoutRedirect()
     {
-        $deliveryAddressInfo = Registry::getRequest()->getRequestEscapedParameter('deladr', []);
+        $deliveryAddressInfo = Registry::getRequest()->getRequestEscapedParameter('deladr', '');
         $countryToShop = $this->oeGeoBlockingCreateCountryToShopByAddressId(
             Registry::getRequest()->getRequestEscapedParameter('oxaddressid', '')
         );
         /** @var \OxidEsales\GeoBlocking\Model\Address $address */
         $address = Registry::get(Address::class);
-        if ($address->load((string)$countryToShop->oegeoblocking_country_to_shop__pickup_addressid->value)) {
+        if ($address->load((string)$countryToShop->getFieldData('pickup_addressid'))) {
             if ($address->oeGeoBlockingIsUserChangingAddress($deliveryAddressInfo)) {
                 Registry::getUtilsView()->addErrorToDisplay(
                     'OEGEOBLOCKING_PICKUP_ADDRESS_CHANGE_NOT_ALLOWED',
@@ -49,10 +49,13 @@ class UserComponent extends UserComponent_parent
      * Override does not allow to delete predefined shipping address.
      *
      * @see \OxidEsales\Eshop\Application\Component\UserComponent::deleteShippingAddress()
+     *
+     * @return void
      */
     public function deleteShippingAddress()
     {
-        $countryToShop = $this->oeGeoBlockingCreateCountryToShopByAddressId(Registry::getRequest()->getRequestEscapedParameter('oxaddressid', ''));
+        $addressId = Registry::getRequest()->getRequestEscapedParameter('oxaddressid', '');
+        $countryToShop = $this->oeGeoBlockingCreateCountryToShopByAddressId($addressId);
         if ($countryToShop->getId()) {
             Registry::getUtilsView()->addErrorToDisplay('OEGEOBLOCKING_PICKUP_ADDRESS_CHANGE_NOT_ALLOWED', false, true);
         } else {

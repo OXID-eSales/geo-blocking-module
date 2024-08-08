@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright © OXID eSales AG. All rights reserved.
  * See LICENSE file for license details.
@@ -36,7 +37,10 @@ class Address extends Address_parent
         $tableName = $this->getCoreTableName();
         foreach ($this->getFieldNames() as $fieldName) {
             $fieldNameWithTable = $tableName . '__' . $fieldName;
-            if (isset($addressInfo[$fieldNameWithTable]) && $addressInfo[$fieldNameWithTable] !== $this->{$fieldNameWithTable}->value) {
+            if (
+                isset($addressInfo[$fieldNameWithTable]) &&
+                $addressInfo[$fieldNameWithTable] !== $this->{$fieldNameWithTable}->value
+            ) {
                 return true;
             }
         }

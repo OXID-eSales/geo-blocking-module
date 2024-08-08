@@ -32,6 +32,16 @@ runscript: &runscript
   geo_blocking:
     path: 'vendor/oxid-esales/geo-blocking-module'
 
+runslim:
+  <<: *runscript
+  matrix:
+    script: |
+      [
+        "geo_blocking:phpcs-report",
+        "geo_blocking:phpmd-report",
+        "geo_blocking:phpstan-report"
+      ]
+
 sonarcloud:
   matrix:
     testplan: '["-"]'

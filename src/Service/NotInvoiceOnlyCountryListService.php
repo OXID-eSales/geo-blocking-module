@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright © OXID eSales AG. All rights reserved.
  * See LICENSE file for license details.
@@ -36,12 +37,13 @@ class NotInvoiceOnlyCountryListService
     public function getWithSelectedLanguage($languageId)
     {
         $shopId = Registry::getConfig()->getShopId();
-        $countryViewName = Registry::get(TableViewNameGenerator::class)->getViewName('oxcountry', $languageId);
-        $countryToShopViewName = Registry::get(TableViewNameGenerator::class)->getViewName('oegeoblocking_country_to_shop', $languageId);
+        $tableViewNAmeGen = Registry::get(TableViewNameGenerator::class);
+        $countryViewName = $tableViewNAmeGen->getViewName('oxcountry', $languageId);
+        $countryShopViewName = $tableViewNAmeGen->getViewName('oegeoblocking_country_to_shop', $languageId);
 
         $select = "SELECT c.oxid, c.oxtitle, c.oxisoalpha2 
                         FROM {$countryViewName} c 
-                        LEFT JOIN {$countryToShopViewName} gbc2s 
+                        LEFT JOIN {$countryShopViewName} gbc2s 
                                 on gbc2s.oxcountryid = c.oxid
                                 AND gbc2s.oxshopid = {$shopId}  
                         WHERE c.oxactive = '1' 
