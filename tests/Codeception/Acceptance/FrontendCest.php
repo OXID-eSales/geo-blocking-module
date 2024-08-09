@@ -29,13 +29,10 @@ class FrontendCest
         $registrationPage = $startPage->openUserRegistrationPage();
 
         $registrationPage->enterUserLoginData(Fixtures::get('userLoginData'));
-        $I->executeJS('window.scrollTo(0,0);');
         $registrationPage->enterUserData(Fixtures::get('userData'));
-        $I->executeJS('window.scrollTo(0,0);');
         $registrationPage->enterAddressData(Fixtures::get('userAddressData'));
         $I->dontSeeInPageSource(Translator::translate('OEGEOBLOCKING_HINT'));
-        $I->executeJS('window.scrollTo(0,0);');
-        $registrationPage->registerUser();
+        $I->clickWithLeftButton($registrationPage->saveFormButton);
         $I->see(Translator::translate('MESSAGE_WELCOME_REGISTERED_USER'));
     }
 
@@ -58,7 +55,7 @@ class FrontendCest
         $userCheckout->enterAddressData(Fixtures::get('userAddressData'));
         $I->see(Translator::translate('OEGEOBLOCKING_HINT'));
 
-        $I->retryClick($userCheckout->delCountryId);
+        $I->clickWithLeftButton($userCheckout->delCountryId);
         $I->see('Austria', $userCheckout->shipAddressForm);
         $I->dontSee('United Kingdom', $userCheckout->shipAddressForm);
 
