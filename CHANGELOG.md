@@ -4,6 +4,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2.1.1] - Unreleased
+
+### Added
+- Static analysis tools:
+    - PhpCs
+    - PhpMd
+    - PhpStan
+
+### Fixed
+- Multiple instances of coding standard and style errors
+
 ## [2.1.0] - 2024-06-26
 This is the stable release for v2.1.0. No changes have been made since v2.1.0-rc.1.
 
@@ -64,6 +75,7 @@ This is the stable release for v2.1.0. No changes have been made since v2.1.0-rc
 
 ## [1.0.0] - 2019-02-25
 
+[2.1.1]: https://github.com/OXID-eSales/geo-blocking-module/compare/v2.1.0...b-7.1.x
 [2.1.0]: https://github.com/OXID-eSales/geo-blocking-module/compare/v2.1.0-rc.1...v2.1.0
 [2.1.0-rc.1]: https://github.com/OXID-eSales/geo-blocking-module/compare/v2.0.0...v2.1.0-rc.1
 [2.0.0]: https://github.com/OXID-eSales/geo-blocking-module/compare/v1.1.1...v2.0.0
