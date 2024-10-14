@@ -5,13 +5,13 @@ on:
   pull_request: {}
   push:
     branches:
-      - 'b-7.1.x*'
+      - 'b-7.2.x*'
 
 jobs:
   geo_blocking_php82_mysql80:
     uses: oxid-eSales/github-actions/.github/workflows/universal_workflow_light.yaml@v4
     with:
-      testplan: '~/defaults/7.1.x.yaml,~/defaults/php8.2_mysql8.0_only.yaml,~/geo-blocking.yaml'
+      testplan: '~/defaults/7.2.x.yaml,~/defaults/php8.2_mysql8.0_only.yaml,~/geo-blocking.yaml'
       runs_on: '"ubuntu-latest"'
       defaults: 'v4'
       plan_folder: '.github/oxid-esales'

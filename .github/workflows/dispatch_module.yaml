@@ -41,7 +41,7 @@ jobs:
               ;;
           esac
           # shellcheck disable=SC2088
-          TESTPLAN="~/defaults/7.1.x.yaml,${LIMIT}~/geo-blocking.yaml"
+          TESTPLAN="~/defaults/7.2.x.yaml,${LIMIT}~/geo-blocking.yaml"
           echo "testplan=${TESTPLAN}" | tee -a "${GITHUB_OUTPUT}"
 
   dispatch_stable:

@@ -21,7 +21,7 @@ class UserComponent extends UserComponent_parent
      *
      * @see \OxidEsales\Eshop\Application\Component\UserComponent::changeUserWithoutRedirect()
      *
-     * @return bool
+     * @return bool|null
      */
     public function changeUserWithoutRedirect()
     {

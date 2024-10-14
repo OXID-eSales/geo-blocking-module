@@ -10,7 +10,7 @@ jobs:
     if: always()
     uses: oxid-eSales/github-actions/.github/workflows/universal_workflow_light.yaml@v4
     with:
-      testplan: '~/defaults/7.1.x.yaml,~/defaults/scheduled.yaml,~/geo-blocking.yaml'
+      testplan: '~/defaults/7.2.x.yaml,~/defaults/scheduled.yaml,~/geo-blocking.yaml'
       runs_on: '"ubuntu-latest"'
       defaults: 'v4'
       plan_folder: '.github/oxid-esales'
