@@ -4,9 +4,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## [2.1.1] - Unreleased
+## [2.2.0] - Unreleased
 
 ### Added
+- PHP 8.3
+- Upgraded to work with OXID eShop 7.2.x
 - Static analysis tools:
     - PhpCs
     - PhpMd
@@ -14,6 +16,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Fixed
 - Multiple instances of coding standard and style errors
+
+### Removed
+- Support of PHP 8.1
 
 ## [2.1.0] - 2024-06-26
 This is the stable release for v2.1.0. No changes have been made since v2.1.0-rc.1.
