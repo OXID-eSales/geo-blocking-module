@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2.2.0] - unreleased
+
+### Fixed
+- Shop owners suggested Pick Up Address cannot be used for order if no salutation is included [0007734](https://bugs.oxid-esales.com/view.php?id=7734)
+
 ## [2.2.0-rc.1] - 2024-10-17
 
 ### Added

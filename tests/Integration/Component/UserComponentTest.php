@@ -80,6 +80,22 @@ class UserComponentTest extends TestCase
         $this->assertNull($errors);
     }
 
+    public function testChangeUserWithoutRedirectWithWhiteSpacesInAddress()
+    {
+        /** @var \OxidEsales\GeoBlocking\Component\UserComponent $userComponent */
+        $userComponent = oxNew(UserComponent::class);
+        $_GET['oxaddressid'] = 'address_id';
+        $_GET['deladr'] = [
+            "oxaddress__oxsal" => " ",
+            "oxaddress__oxuserid" => " user_id ",
+            "oxaddress__oxcountryid" => " country_id"
+        ];
+
+        $this->assertNotFalse($userComponent->changeUserWithoutRedirect());
+        $errors = Registry::getSession()->getVariable('Errors');
+        $this->assertNull($errors);
+    }
+
     public function testDeleteShippingAddressWhenNotAllowed()
     {
         $_GET['oxaddressid'] = 'address_id';

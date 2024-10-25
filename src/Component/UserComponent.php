@@ -8,6 +8,8 @@
 namespace OxidEsales\GeoBlocking\Component;
 
 use OxidEsales\Eshop\Application\Model\Address;
+use OxidEsales\Eshop\Core\Form\FormFields;
+use OxidEsales\Eshop\Core\Form\FormFieldsTrimmer;
 use OxidEsales\Eshop\Core\Registry;
 use OxidEsales\GeoBlocking\Service\CountryToShopService;
 
@@ -26,6 +28,7 @@ class UserComponent extends UserComponent_parent
     public function changeUserWithoutRedirect()
     {
         $deliveryAddressInfo = Registry::getRequest()->getRequestEscapedParameter('deladr', '');
+        $deliveryAddressInfo = $this->trimAddress($deliveryAddressInfo);
         $countryToShop = $this->oeGeoBlockingCreateCountryToShopByAddressId(
             Registry::getRequest()->getRequestEscapedParameter('oxaddressid', '')
         );
@@ -75,5 +78,24 @@ class UserComponent extends UserComponent_parent
         $countryToShopService = oxNew(CountryToShopService::class);
         $countryToShop = $countryToShopService->getByAddressId($addressId);
         return $countryToShop;
+    }
+
+    /**
+     * Returns trimmed address.
+     *
+     * @param array $address
+     *
+     * @return array
+     */
+    private function trimAddress($address)
+    {
+        if (is_array($address)) {
+            $fields  = oxNew(FormFields::class, $address);
+            $trimmer = oxNew(FormFieldsTrimmer::class);
+
+            $address = (array)$trimmer->trim($fields);
+        }
+
+        return $address;
     }
 }
