@@ -4,6 +4,9 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2.2.0] - 2024-11-26
+This is stable release for v2.2.0. No changes have been made since v2.2.0-rc.2.
+
 ## [2.2.0-rc.2] - 2024-10-31
 
 ### Fixed
