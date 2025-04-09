@@ -11,7 +11,7 @@
   "prefer-stable": true,
   "prefer-dist": true,
   "conflict": {
-    "oxid-esales/oxideshop-ce": "<7.2"
+    "oxid-esales/oxideshop-ce": "<7.3"
   },
   "require": {
     "php": "^8.2"
