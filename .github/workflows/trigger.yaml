@@ -8,7 +8,7 @@ on:
       - 'b-7.3.x*'
 
 jobs:
-  geo_blocking_php82_mysql80:
+  geo_blocking_php83_mysql80:
     uses: oxid-eSales/github-actions/.github/workflows/universal_workflow_light.yaml@v4
     with:
       testplan: '~/defaults/7.3.x.yaml,~/defaults/php8.3_mysql8.0_only.yaml,~/geo-blocking.yaml'
