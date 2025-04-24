@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## [undecided] - unreleased
+## [2.3.0-rc.1] - 2025-04-24
 
 ### Added
 - PHP 8.4
@@ -94,11 +94,13 @@ This is the stable release for v2.1.0. No changes have been made since v2.1.0-rc
 
 ## [1.0.0] - 2019-02-25
 
-[2.2.0-rc.1]: https://github.com/OXID-eSales/geo-blocking-module/compare/v2.1.1...v2.2.0 
-[2.1.1]: https://github.com/OXID-eSales/geo-blocking-module/compare/v2.1.0...b-7.1.x
+[2.3.0-rc.1]: https://github.com/OXID-eSales/geo-blocking-module/compare/v2.2.0...2.3.0-rc.1
+[2.2.0]: https://github.com/OXID-eSales/geo-blocking-module/compare/v2.2.0-rc.2...v2.2.0
+[2.2.0-rc.2]: https://github.com/OXID-eSales/geo-blocking-module/compare/v2.2.0-rc.1...v2.2.0-rc.2
+[2.2.0-rc.1]: https://github.com/OXID-eSales/geo-blocking-module/compare/v2.1.0...v2.2.0-rc.1 
 [2.1.0]: https://github.com/OXID-eSales/geo-blocking-module/compare/v2.1.0-rc.1...v2.1.0
 [2.1.0-rc.1]: https://github.com/OXID-eSales/geo-blocking-module/compare/v2.0.0...v2.1.0-rc.1
-[2.0.0]: https://github.com/OXID-eSales/geo-blocking-module/compare/v1.1.1...v2.0.0
+[2.0.0]: https://github.com/OXID-eSales/geo-blocking-module/compare/v1.1.2...v2.0.0
 [1.1.2]: https://github.com/OXID-eSales/geo-blocking-module/compare/v1.1.1...v1.1.2
 [1.1.1]: https://github.com/OXID-eSales/geo-blocking-module/compare/v1.1.0...v1.1.1
 [1.1.0]: https://github.com/OXID-eSales/geo-blocking-module/compare/v1.0.0...v1.1.0
