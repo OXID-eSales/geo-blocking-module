@@ -11,7 +11,7 @@
   "prefer-stable": true,
   "prefer-dist": true,
   "conflict": {
-    "oxid-esales/oxideshop-ce": "<7.3"
+    "oxid-esales/oxideshop-ce": "<7.4"
   },
   "require": {
     "php": "^8.2"
@@ -28,8 +28,8 @@
     "codeception/module-db": "*",
     "codeception/module-filesystem": "*",
     "codeception/module-webdriver": "*",
-    "oxid-esales/codeception-modules": "dev-b-7.3.x",
-    "oxid-esales/codeception-page-objects": "dev-b-7.3.x"
+    "oxid-esales/codeception-modules": "dev-b-7.4.x",
+    "oxid-esales/codeception-page-objects": "dev-b-7.4.x"
   },
   "autoload": {
     "psr-4": {
