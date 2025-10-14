@@ -1,15 +1,15 @@
-install_shop_with_modules:
+install:
   cache:
     prepared_shop: false
   composer:
     transform: |
       {
           "require": {
-              "oxid-esales/oxideshop-ce": "{{ .Data.global.composer.dev_ref }}",
-              "oxid-esales/twig-component": "{{ .Data.global.composer.dev_ref }}",
-              "oxid-esales/twig-admin-theme": "{{ .Data.global.composer.dev_ref }}",
-              "oxid-esales/apex-theme": "{{ .Data.global.composer.dev_ref }}",
-              "oxid-esales/geo-blocking-module": "{{ .Data.global.composer.ref_name }}"
+              "oxid-esales/oxideshop-ce": "{{ .Data.install.composer.dev_ref }}",
+              "oxid-esales/twig-admin-theme": "{{ .Data.install.composer.dev_ref }}",
+              "oxid-esales/twig-component": "{{ .Data.install.composer.dev_ref }}",
+              "oxid-esales/apex-theme": "{{ .Data.install.composer.dev_ref }}",
+              "oxid-esales/geo-blocking-module": "{{ .Data.install.composer.ref_name }}"
           },
           "repositories": {
             "oxid-esales/geo-blocking-module": {
@@ -26,10 +26,10 @@ runscript: &runscript
   matrix:
     script: |
       [
-        "geo_blocking:tests-integration",
-        "geo_blocking:tests-codeception"
+        "oegeoblocking:tests-integration",
+        "oegeoblocking:tests-codeception",
       ]
-  geo_blocking:
+  oegeoblocking:
     path: 'vendor/oxid-esales/geo-blocking-module'
 
 runslim:
@@ -37,24 +37,24 @@ runslim:
   matrix:
     script: |
       [
-        "geo_blocking:phpcs-report",
-        "geo_blocking:phpmd-report",
-        "geo_blocking:phpstan-report"
+        "oegeoblocking:phpstan-report",
+        "oegeoblocking:phpmd-report",
+        "oegeoblocking:phpcs-report",
       ]
 
 sonarcloud:
   matrix:
     testplan: '["-"]'
   strip_path: '/var/www/vendor/oxid-esales/geo-blocking-module/'
-  project_key: 'OXID-eSales_geo-blocking-module'
-  project_name: 'oxid-esales/geo-blocking-module'
   organization: 'oxid-esales'
-  parameters: |
-    -Dsonar.language=php \
-    -Dsonar.scm.provider=git \
-    -Dsonar.sources=src \
-    -Dsonar.tests=tests \
-    -Donar.php.phpstan.reportPaths=coverage-reports/phpstan.report.json
+  project_name: 'oxid-esales/geo-blocking-module'
+  project_key: 'OXID-eSales_geo-blocking-module'
+  target_branch: 'b-7.4.x'
+  parameters: >
+    -Dsonar.language=php
+    -Dsonar.scm.provider=git
+    -Dsonar.sources=src
+    -Dsonar.tests=tests
 
 finish:
-  slack_title: 'Geo Blocking ({{ .Data.global.git.shop_ref }}) by {{ .Github.Actor }}'
+  slack_title: 'Module Geo Blocking ({{ .Data.install.git.ref }}) by {{ .Github.Actor }}'
