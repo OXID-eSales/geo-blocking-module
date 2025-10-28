@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## [Undecided] - unreleased
+## [2.4.0] - 2025-10-28
 
 ### Changed
 - Updated to work with OXID eShop 7.4.x
@@ -102,7 +102,8 @@ This is the stable release for v2.1.0. No changes have been made since v2.1.0-rc
 
 ## [1.0.0] - 2019-02-25
 
-[2.3.0]: https://github.com/OXID-eSales/geo-blocking-module/compare/v2.3.0-rc.1...2.3.0
+[2.4.0]: https://github.com/OXID-eSales/geo-blocking-module/compare/v2.3.0...v2.4.0
+[2.3.0]: https://github.com/OXID-eSales/geo-blocking-module/compare/v2.3.0-rc.1...v2.3.0
 [2.3.0-rc.1]: https://github.com/OXID-eSales/geo-blocking-module/compare/v2.2.0...2.3.0-rc.1
 [2.2.0]: https://github.com/OXID-eSales/geo-blocking-module/compare/v2.2.0-rc.2...v2.2.0
 [2.2.0-rc.2]: https://github.com/OXID-eSales/geo-blocking-module/compare/v2.2.0-rc.1...v2.2.0-rc.2
