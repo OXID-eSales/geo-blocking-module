@@ -7,6 +7,7 @@ Further, this module provides a possibility to mark countries as "Invoice only" 
 
 ## Compatability
 
+* Module v2.5 (or b-7.5.x branch) is compatible with OXID eShop ^7.5
 * Module v2.4 (or b-7.4.x branch) is compatible with OXID eShop ^7.4
 * Module v2.3 (or b-7.3.x branch) is compatible with OXID eShop ^7.3
 * Module v2.2 (or b-7.2.x branch) is compatible with OXID eShop ^7.2
@@ -23,6 +24,7 @@ Further, this module provides a possibility to mark countries as "Invoice only" 
 * **composer require oxid-esales/geo-blocking-module:^2.2** to install the latest version 2.2 from github, compatible with shop 7.2.x
 * **composer require oxid-esales/geo-blocking-module:^2.3** to install the latest version 2.3 from github, compatible with shop 7.3.x
 * **composer require oxid-esales/geo-blocking-module:^2.4** to install the latest version 2.4 from github, compatible with shop 7.4.x
+* **composer require oxid-esales/geo-blocking-module:^2.5** to install the latest version 2.5 from github, compatible with shop 7.5.x
 
 ## Documentation
 
