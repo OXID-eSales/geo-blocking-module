@@ -14,6 +14,7 @@ use OxidEsales\Eshop\Core\Field;
 use OxidEsales\Eshop\Core\InputValidator;
 use OxidEsales\Eshop\Core\Registry;
 use OxidEsales\GeoBlocking\Model\CountryToShop;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 class InputValidatorTest extends TestCase
@@ -25,7 +26,13 @@ class InputValidatorTest extends TestCase
         parent::setUp();
         $user = new User();
         $user->setId('user_id');
+        $user->assign([
+            'oxpassword' => 'test',
+            'oxregister' => 0,
+            'oxusername' => 'test@test.de'
+        ]);
         $user->save();
+        $user->load('user_id');
         $this->user = $user;
 
         $countryToShop = new CountryToShop();
@@ -65,10 +72,10 @@ class InputValidatorTest extends TestCase
     }
 
     /**
-     * @dataProvider checkoutCountriesProvider
      * @param array $invoiceAddressParameters
      * @param array $deliveryAddressParameters
      */
+    #[DataProvider('checkoutCountriesProvider')]
     public function testCheckInvoiceOnlyCountries($invoiceAddressParameters, $deliveryAddressParameters)
     {
         $validator = $this->createInputValidator();

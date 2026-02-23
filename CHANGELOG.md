@@ -10,6 +10,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Updated to work with OXID eShop 7.5.x
 - Minimum PHP version is now 8.3, tested up to PHP 8.5
 
+### Added
+- PHPUnit 12.5 support
+
 ## [2.4.0] - 2025-10-28
 
 ### Changed
