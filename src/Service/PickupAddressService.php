@@ -36,11 +36,11 @@ class PickupAddressService
     public function getByCountryId($countryId)
     {
         $shopId = Registry::getConfig()->getShopid();
-        $selectQuery = "select pickup_addressid from oegeoblocking_country_to_shop
-                      where oegeoblocking_country_to_shop.oxcountryid = '{$countryId}'
-                      and oegeoblocking_country_to_shop.oxshopid = '{$shopId}'";
+        $db = DatabaseProvider::getDb();
+        $selectQuery = "SELECT pickup_addressid FROM oegeoblocking_country_to_shop
+                      WHERE oxcountryid = ? AND oxshopid = ?";
 
-        $oxId = DatabaseProvider::getDb()->getOne($selectQuery);
+        $oxId = $db->getOne($selectQuery, [$countryId, $shopId]);
         if ($oxId) {
             $this->address->load($oxId);
         }
@@ -55,11 +55,11 @@ class PickupAddressService
     public function getByAddressId($addressId)
     {
         $shopId = Registry::getConfig()->getShopid();
-        $selectQuery = "select pickup_addressid from oegeoblocking_country_to_shop
-                      where oegeoblocking_country_to_shop.pickup_addressid = '{$addressId}'
-                      and oegeoblocking_country_to_shop.oxshopid = '{$shopId}'";
+        $db = DatabaseProvider::getDb();
+        $selectQuery = "SELECT pickup_addressid FROM oegeoblocking_country_to_shop
+                      WHERE pickup_addressid = ? AND oxshopid = ?";
 
-        $oxId = DatabaseProvider::getDb()->getOne($selectQuery);
+        $oxId = $db->getOne($selectQuery, [$addressId, $shopId]);
         if ($oxId) {
             $this->address->load($oxId);
         }
