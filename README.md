@@ -7,6 +7,7 @@ Further, this module provides a possibility to mark countries as "Invoice only" 
 
 ## Compatability
 
+* b-7.6.x branch is compatible with OXID eShop ^7.6
 * Module v2.5 (or b-7.5.x branch) is compatible with OXID eShop ^7.5
 * Module v2.4 (or b-7.4.x branch) is compatible with OXID eShop ^7.4
 * Module v2.3 (or b-7.3.x branch) is compatible with OXID eShop ^7.3
