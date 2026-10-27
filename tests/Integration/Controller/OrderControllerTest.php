@@ -24,7 +24,7 @@ class OrderControllerTest extends TestCase
 
         $address = new Address();
         $address->setId('address_id');
-        $address->oxaddress__oxuserid = new Field('any');
+        $address->oxaddress__oxuserid = new Field('user_id');
         $address->oxaddress__oxcountryid = new Field('country_id');
         $address->save();
 
